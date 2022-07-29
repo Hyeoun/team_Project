@@ -13,6 +13,8 @@ namespace team_Project {
         public Form1()
         {
             InitializeComponent();
+            saveFileDialog1.DefaultExt = "bmp";
+            saveFileDialog1.Filter = "BMP files(*.bmp)|*.bmp";
         }
         private void btn_load1_Click(object sender, EventArgs e)
         {
@@ -28,32 +30,48 @@ namespace team_Project {
                 RightBox.Load(openFileDialog1.FileName);
             }
         }
+        private void Save_dlg(Bitmap buf)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string loc = saveFileDialog1.FileName.ToString();
+                buf.save_bmp(loc);
+            }
+        }
         private void btn_save1_Click(object sender, EventArgs e)
         {
-            //저장 누르면 모달로그 꺼내서 이미지 전체 저장 or 확대된 부분 저장
-            switch (MessageBox.Show("선택하신 부분을 저장하시겠습니까? \n (예 : 부분 저장, 아니요 : 전체 저장)",
-                "저장", MessageBoxButtons.YesNoCancel))
+            if(LeftBox.Image != null)
             {
-                case DialogResult.Yes:
-                    break;
-                case DialogResult.No:
-                    break;
-                case DialogResult.Cancel:
-                    break;
+                switch (MessageBox.Show("선택하신 부분을 저장하시겠습니까? \n (예 : 부분 저장, 아니요 : 전체 저장)",
+                "저장", MessageBoxButtons.YesNoCancel))
+                {
+                    case DialogResult.Yes:
+                        Bitmap buf = new Bitmap(LeftBox.Image);
+                        Save_dlg(buf);
+                        break;
+                    case DialogResult.No:
+                        break;
+                    case DialogResult.Cancel:
+                        break;
+                }
             }
         }
         private void btn_save2_Click(object sender, EventArgs e)
         {
-            //저장 누르면 모달로그 꺼내서 이미지 전체 저장 or 확대된 부분 저장
-            switch (MessageBox.Show("선택하신 부분을 저장하시겠습니까? \n (예 : 부분 저장, 아니요 : 전체 저장)",
-                "저장", MessageBoxButtons.YesNoCancel))
+            if(RightBox.Image != null)
             {
-                case DialogResult.Yes:
-                    break;
-                case DialogResult.No:
-                    break;
-                case DialogResult.Cancel:
-                    break;
+                switch (MessageBox.Show("선택하신 부분을 저장하시겠습니까? \n (예 : 부분 저장, 아니요 : 전체 저장)",
+                "저장", MessageBoxButtons.YesNoCancel))
+                {
+                    case DialogResult.Yes:
+                        Bitmap buf = new Bitmap(RightBox.Image);
+                        Save_dlg(buf);
+                        break;
+                    case DialogResult.No:
+                        break;
+                    case DialogResult.Cancel:
+                        break;
+                }
             }
         }
         private void btn_exp_Click(object sender, EventArgs e)

@@ -44,6 +44,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btn_match = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.LeftBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RightBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scope_box)).BeginInit();
@@ -268,6 +269,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btn_match;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
