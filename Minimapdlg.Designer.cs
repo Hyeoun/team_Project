@@ -1,14 +1,16 @@
-﻿namespace team_Project {
-    partial class Minimapdlg {
+﻿namespace team_Project
+{
+    partial class Minimapdlg
+    {
         /// <summary>
-        /// Required designer variable.
+        /// 필수 디자이너 변수입니다.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// 사용 중인 모든 리소스를 정리합니다.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">관리되는 리소스를 삭제해야 하면 true이고, 그렇지 않으면 false입니다.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -18,43 +20,55 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows Form 디자이너에서 생성한 코드
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// 디자이너 지원에 필요한 메서드입니다. 
+        /// 이 메서드의 내용을 코드 편집기로 수정하지 마세요.
         /// </summary>
         private void InitializeComponent()
         {
-            this.minimap_box = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.minimap_box)).BeginInit();
+            this.left_box = new System.Windows.Forms.PictureBox();
+            this.OpenFiledlg = new System.Windows.Forms.OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.left_box)).BeginInit();
             this.SuspendLayout();
             // 
-            // minimap_box
+            // left_box
             // 
-            this.minimap_box.Location = new System.Drawing.Point(38, 62);
-            this.minimap_box.Name = "minimap_box";
-            this.minimap_box.Size = new System.Drawing.Size(400, 400);
-            this.minimap_box.TabIndex = 0;
-            this.minimap_box.TabStop = false;
+            this.left_box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.left_box.Location = new System.Drawing.Point(25, 98);
+            this.left_box.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.left_box.Name = "left_box";
+            this.left_box.Size = new System.Drawing.Size(400, 400);
+            this.left_box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.left_box.TabIndex = 0;
+            this.left_box.TabStop = false;
+            this.left_box.Paint += new System.Windows.Forms.PaintEventHandler(this.left_box_Paint);
+            this.left_box.MouseMove += new System.Windows.Forms.MouseEventHandler(this.left_box_MouseMove);
+            // 
+            // OpenFiledlg
+            // 
+            this.OpenFiledlg.FileName = "OpenFiledlg";
             // 
             // Minimapdlg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(490, 507);
-            this.Controls.Add(this.minimap_box);
+            this.ClientSize = new System.Drawing.Size(454, 519);
+            this.Controls.Add(this.left_box);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Minimapdlg";
-            this.Text = "Minimapdlg";
-            this.Deactivate += new System.EventHandler(this.Minimapdlg_Deactivate);
-            this.Load += new System.EventHandler(this.Minimapdlg_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.minimap_box)).EndInit();
+            this.Text = "Form1";
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
+            ((System.ComponentModel.ISupportInitialize)(this.left_box)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox minimap_box;
+        private System.Windows.Forms.PictureBox left_box;
+        private System.Windows.Forms.OpenFileDialog OpenFiledlg;
     }
 }
+

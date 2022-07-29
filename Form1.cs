@@ -8,19 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace team_Project {
-    public partial class Form1 : Form {
+namespace team_Project
+{
+    public partial class Form1 : Form
+    {
+        Image OriginImage;
+
         public Form1()
         {
             InitializeComponent();
             saveFileDialog1.DefaultExt = "bmp";
             saveFileDialog1.Filter = "BMP files(*.bmp)|*.bmp";
         }
+
         private void btn_load1_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 LeftBox.Load(openFileDialog1.FileName);
+                OriginImage = LeftBox.Image;
             }
         }
         private void btn_load2_Click(object sender, EventArgs e)
@@ -35,12 +41,13 @@ namespace team_Project {
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string loc = saveFileDialog1.FileName.ToString();
-                buf.save_bmp(loc);
+                buf.Save(loc);
             }
         }
+
         private void btn_save1_Click(object sender, EventArgs e)
         {
-            if(LeftBox.Image != null)
+            if (LeftBox.Image != null)
             {
                 switch (MessageBox.Show("선택하신 부분을 저장하시겠습니까? \n (예 : 부분 저장, 아니요 : 전체 저장)",
                 "저장", MessageBoxButtons.YesNoCancel))
@@ -50,6 +57,8 @@ namespace team_Project {
                         Save_dlg(buf);
                         break;
                     case DialogResult.No:
+                        Save_dlg(new Bitmap(OriginImage));
+                        break;
                         break;
                     case DialogResult.Cancel:
                         break;
@@ -58,7 +67,7 @@ namespace team_Project {
         }
         private void btn_save2_Click(object sender, EventArgs e)
         {
-            if(RightBox.Image != null)
+            if (RightBox.Image != null)
             {
                 switch (MessageBox.Show("선택하신 부분을 저장하시겠습니까? \n (예 : 부분 저장, 아니요 : 전체 저장)",
                 "저장", MessageBoxButtons.YesNoCancel))
@@ -68,6 +77,7 @@ namespace team_Project {
                         Save_dlg(buf);
                         break;
                     case DialogResult.No:
+                        Save_dlg(new Bitmap(OriginImage));
                         break;
                     case DialogResult.Cancel:
                         break;
@@ -166,56 +176,18 @@ namespace team_Project {
         {
 
         }
+
         private Minimapdlg minimapdlg = null;
         private void LeftBox_Click(object sender, EventArgs e)
         {
             if (minimapdlg == null)
             {
-                minimapdlg = new Minimapdlg();
+                minimapdlg = new Minimapdlg(LeftBox);
                 minimapdlg.Owner = this;
-                minimapdlg?.Show();  // null이 아니면 show
+                minimapdlg?.Show();
             }
             else
                 minimapdlg.Focus();
-        }
-
-        private void LeftBox_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (LeftBox.Image == null)
-            {
-                label1.Text = $" X : {e.X}";
-                label2.Text = $" Y : {e.Y}";
-            }
-            else
-            {
-                int realX = (int)(e.X * ((double)LeftBox.Image.Width / (double)LeftBox.Width));
-                int realY = (int)(e.Y * ((double)LeftBox.Image.Height / (double)LeftBox.Height));
-
-                label1.Text = $"X : " + realX;
-                label2.Text = $"Y : " + realY;
-
-                Bitmap bitmap = new Bitmap(101, 101);
-
-                for (int i = -50; i < 50; ++i)
-                {
-                    for (int j = -50; j < 50; ++j)
-                    {
-                        if (((realX + i) < 0 || (realY + j) < 0 || (realY + j) >= LeftBox.Height || (realX + i) >= LeftBox.Width))
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            bitmap.SetPixel(50 + i, 50 + j, ((Bitmap)(LeftBox.Image)).GetPixel(realX + i, realY + j));
-
-                        }
-                    }
-                }
-                byte temp = ((Bitmap)(LeftBox.Image)).GetPixel(realX, realY).R;
-                lbl_gray.Text = $"Gray : {temp}";
-
-                scope_box.Image = bitmap;
-            }
         }
     }
 }
