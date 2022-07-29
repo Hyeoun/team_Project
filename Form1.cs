@@ -21,5 +21,21 @@ namespace team_Project {
             //dsaffds
             //sfheirtl
         }
+
+        private void btn_load1_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                LeftBox.Load(openFileDialog1.FileName);
+            }
+        }
+
+        private void btn_load2_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                RightBox.Load(openFileDialog1.FileName);
+            }
+        }
     }
 }

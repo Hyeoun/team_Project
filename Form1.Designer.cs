@@ -37,10 +37,10 @@
             this.btn_lap = new System.Windows.Forms.Button();
             this.scope_box = new System.Windows.Forms.PictureBox();
             this.lbl_gray = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.btn_load1 = new System.Windows.Forms.Button();
+            this.btn_save1 = new System.Windows.Forms.Button();
+            this.btn_load2 = new System.Windows.Forms.Button();
+            this.btn_save2 = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btn_match = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -72,7 +72,7 @@
             this.btn_openMap.Location = new System.Drawing.Point(24, 24);
             this.btn_openMap.Name = "btn_openMap";
             this.btn_openMap.Size = new System.Drawing.Size(109, 33);
-            this.btn_openMap.TabIndex = 1;
+            this.btn_openMap.TabIndex = 0;
             this.btn_openMap.Text = "미니맵";
             this.btn_openMap.UseVisualStyleBackColor = true;
             // 
@@ -81,7 +81,7 @@
             this.btn_exp.Location = new System.Drawing.Point(810, 24);
             this.btn_exp.Name = "btn_exp";
             this.btn_exp.Size = new System.Drawing.Size(109, 33);
-            this.btn_exp.TabIndex = 1;
+            this.btn_exp.TabIndex = 5;
             this.btn_exp.Text = "팽창연산";
             this.btn_exp.UseVisualStyleBackColor = true;
             // 
@@ -90,7 +90,7 @@
             this.btn_ero.Location = new System.Drawing.Point(810, 72);
             this.btn_ero.Name = "btn_ero";
             this.btn_ero.Size = new System.Drawing.Size(109, 33);
-            this.btn_ero.TabIndex = 1;
+            this.btn_ero.TabIndex = 6;
             this.btn_ero.Text = "침식연산";
             this.btn_ero.UseVisualStyleBackColor = true;
             // 
@@ -99,7 +99,7 @@
             this.btn_hist.Location = new System.Drawing.Point(810, 122);
             this.btn_hist.Name = "btn_hist";
             this.btn_hist.Size = new System.Drawing.Size(109, 33);
-            this.btn_hist.TabIndex = 1;
+            this.btn_hist.TabIndex = 7;
             this.btn_hist.Text = "히스토그램";
             this.btn_hist.UseVisualStyleBackColor = true;
             // 
@@ -108,7 +108,7 @@
             this.btn_otsu.Location = new System.Drawing.Point(810, 170);
             this.btn_otsu.Name = "btn_otsu";
             this.btn_otsu.Size = new System.Drawing.Size(109, 33);
-            this.btn_otsu.TabIndex = 1;
+            this.btn_otsu.TabIndex = 8;
             this.btn_otsu.Text = "오츠이진화";
             this.btn_otsu.UseVisualStyleBackColor = true;
             // 
@@ -117,7 +117,7 @@
             this.btn_gau.Location = new System.Drawing.Point(810, 219);
             this.btn_gau.Name = "btn_gau";
             this.btn_gau.Size = new System.Drawing.Size(109, 33);
-            this.btn_gau.TabIndex = 1;
+            this.btn_gau.TabIndex = 9;
             this.btn_gau.Text = "가우시안";
             this.btn_gau.UseVisualStyleBackColor = true;
             // 
@@ -126,7 +126,7 @@
             this.btn_lap.Location = new System.Drawing.Point(810, 267);
             this.btn_lap.Name = "btn_lap";
             this.btn_lap.Size = new System.Drawing.Size(109, 33);
-            this.btn_lap.TabIndex = 1;
+            this.btn_lap.TabIndex = 10;
             this.btn_lap.Text = "라플라시안";
             this.btn_lap.UseVisualStyleBackColor = true;
             // 
@@ -145,59 +145,61 @@
             this.lbl_gray.Location = new System.Drawing.Point(813, 415);
             this.lbl_gray.Name = "lbl_gray";
             this.lbl_gray.Size = new System.Drawing.Size(50, 15);
-            this.lbl_gray.TabIndex = 3;
+            this.lbl_gray.TabIndex = 12;
             this.lbl_gray.Text = "gray : ";
             // 
-            // button7
+            // btn_load1
             // 
-            this.button7.Location = new System.Drawing.Point(83, 464);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(109, 33);
-            this.button7.TabIndex = 1;
-            this.button7.Text = "불러오기";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btn_load1.Location = new System.Drawing.Point(83, 464);
+            this.btn_load1.Name = "btn_load1";
+            this.btn_load1.Size = new System.Drawing.Size(109, 33);
+            this.btn_load1.TabIndex = 1;
+            this.btn_load1.Text = "불러오기";
+            this.btn_load1.UseVisualStyleBackColor = true;
+            this.btn_load1.Click += new System.EventHandler(this.btn_load1_Click);
             // 
-            // button8
+            // btn_save1
             // 
-            this.button8.Location = new System.Drawing.Point(217, 464);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(109, 33);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "저장";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.btn_save1.Location = new System.Drawing.Point(217, 464);
+            this.btn_save1.Name = "btn_save1";
+            this.btn_save1.Size = new System.Drawing.Size(109, 33);
+            this.btn_save1.TabIndex = 2;
+            this.btn_save1.Text = "저장";
+            this.btn_save1.UseVisualStyleBackColor = true;
+            this.btn_save1.Click += new System.EventHandler(this.button8_Click);
             // 
-            // button9
+            // btn_load2
             // 
-            this.button9.Location = new System.Drawing.Point(479, 464);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(109, 33);
-            this.button9.TabIndex = 1;
-            this.button9.Text = "불러오기";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btn_load2.Location = new System.Drawing.Point(479, 464);
+            this.btn_load2.Name = "btn_load2";
+            this.btn_load2.Size = new System.Drawing.Size(109, 33);
+            this.btn_load2.TabIndex = 3;
+            this.btn_load2.Text = "불러오기";
+            this.btn_load2.UseVisualStyleBackColor = true;
+            this.btn_load2.Click += new System.EventHandler(this.btn_load2_Click);
             // 
-            // button10
+            // btn_save2
             // 
-            this.button10.Location = new System.Drawing.Point(613, 464);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(109, 33);
-            this.button10.TabIndex = 1;
-            this.button10.Text = "저장";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btn_save2.Location = new System.Drawing.Point(613, 464);
+            this.btn_save2.Name = "btn_save2";
+            this.btn_save2.Size = new System.Drawing.Size(109, 33);
+            this.btn_save2.TabIndex = 4;
+            this.btn_save2.Text = "저장";
+            this.btn_save2.UseVisualStyleBackColor = true;
             // 
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(24, 525);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(765, 23);
-            this.progressBar1.TabIndex = 4;
+            this.progressBar1.TabIndex = 13;
             // 
             // btn_match
             // 
             this.btn_match.Location = new System.Drawing.Point(810, 349);
             this.btn_match.Name = "btn_match";
             this.btn_match.Size = new System.Drawing.Size(109, 33);
-            this.btn_match.TabIndex = 1;
+            this.btn_match.TabIndex = 11;
             this.btn_match.Text = "탬플릿매칭";
             this.btn_match.UseVisualStyleBackColor = true;
             // 
@@ -213,10 +215,10 @@
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lbl_gray);
             this.Controls.Add(this.scope_box);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.btn_save2);
+            this.Controls.Add(this.btn_load2);
+            this.Controls.Add(this.btn_save1);
+            this.Controls.Add(this.btn_load1);
             this.Controls.Add(this.btn_match);
             this.Controls.Add(this.btn_lap);
             this.Controls.Add(this.btn_gau);
@@ -250,10 +252,10 @@
         private System.Windows.Forms.Button btn_lap;
         private System.Windows.Forms.PictureBox scope_box;
         private System.Windows.Forms.Label lbl_gray;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btn_load1;
+        private System.Windows.Forms.Button btn_save1;
+        private System.Windows.Forms.Button btn_load2;
+        private System.Windows.Forms.Button btn_save2;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btn_match;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
