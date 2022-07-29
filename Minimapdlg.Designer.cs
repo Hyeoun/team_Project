@@ -46,6 +46,7 @@
             this.Controls.Add(this.minimap_box);
             this.Name = "Minimapdlg";
             this.Text = "Minimapdlg";
+            this.Load += new System.EventHandler(this.Minimapdlg_Load);
             ((System.ComponentModel.ISupportInitialize)(this.minimap_box)).EndInit();
             this.ResumeLayout(false);
 

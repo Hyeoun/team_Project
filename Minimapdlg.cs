@@ -14,5 +14,10 @@ namespace team_Project {
         {
             InitializeComponent();
         }
+
+        private void Minimapdlg_Load(object sender, EventArgs e)
+        {
+            var parent = this.Owner as Form1;
+        }
     }
 }

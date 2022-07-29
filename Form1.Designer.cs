@@ -57,6 +57,7 @@
             this.LeftBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.LeftBox.TabIndex = 0;
             this.LeftBox.TabStop = false;
+            this.LeftBox.Click += new System.EventHandler(this.LeftBox_Click);
             // 
             // RightBox
             // 

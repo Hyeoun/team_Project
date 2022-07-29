@@ -14,13 +14,6 @@ namespace team_Project {
         {
             InitializeComponent();
         }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            //저장 누르면 모달로그 꺼내서 이미지 전체 저장 or 확대된 부분 저장
-            //dsaffds
-            //sfheirtl
-        }
         private void btn_load1_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -135,6 +128,17 @@ namespace team_Project {
         {
 
         }
-
+        private Minimapdlg minimapdlg = null;
+        private void LeftBox_Click(object sender, EventArgs e)
+        {
+            if (minimapdlg == null)
+            {
+                minimapdlg = new Minimapdlg();
+                minimapdlg.Owner = this;
+                minimapdlg?.Show();  // null이 아니면 show
+            }
+            else
+                minimapdlg.Focus();
+        }
     }
 }
