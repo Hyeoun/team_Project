@@ -177,6 +177,11 @@ namespace team_Project {
             }
             else
                 minimapdlg.Focus();
+            
+            if (minimapdlg.open == false)
+            {
+                minimapdlg = null;
+            }
         }
     }
 }
