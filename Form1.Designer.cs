@@ -84,6 +84,7 @@
             this.btn_exp.TabIndex = 5;
             this.btn_exp.Text = "팽창연산";
             this.btn_exp.UseVisualStyleBackColor = true;
+            this.btn_exp.Click += new System.EventHandler(this.btn_exp_Click);
             // 
             // btn_ero
             // 
@@ -93,6 +94,7 @@
             this.btn_ero.TabIndex = 6;
             this.btn_ero.Text = "침식연산";
             this.btn_ero.UseVisualStyleBackColor = true;
+            this.btn_ero.Click += new System.EventHandler(this.btn_ero_Click);
             // 
             // btn_hist
             // 
@@ -102,6 +104,7 @@
             this.btn_hist.TabIndex = 7;
             this.btn_hist.Text = "히스토그램";
             this.btn_hist.UseVisualStyleBackColor = true;
+            this.btn_hist.Click += new System.EventHandler(this.btn_hist_Click);
             // 
             // btn_otsu
             // 
@@ -111,6 +114,7 @@
             this.btn_otsu.TabIndex = 8;
             this.btn_otsu.Text = "오츠이진화";
             this.btn_otsu.UseVisualStyleBackColor = true;
+            this.btn_otsu.Click += new System.EventHandler(this.btn_otsu_Click);
             // 
             // btn_gau
             // 
@@ -120,6 +124,7 @@
             this.btn_gau.TabIndex = 9;
             this.btn_gau.Text = "가우시안";
             this.btn_gau.UseVisualStyleBackColor = true;
+            this.btn_gau.Click += new System.EventHandler(this.btn_gau_Click);
             // 
             // btn_lap
             // 
@@ -129,6 +134,7 @@
             this.btn_lap.TabIndex = 10;
             this.btn_lap.Text = "라플라시안";
             this.btn_lap.UseVisualStyleBackColor = true;
+            this.btn_lap.Click += new System.EventHandler(this.btn_lap_Click);
             // 
             // scope_box
             // 
@@ -166,7 +172,7 @@
             this.btn_save1.TabIndex = 2;
             this.btn_save1.Text = "저장";
             this.btn_save1.UseVisualStyleBackColor = true;
-            this.btn_save1.Click += new System.EventHandler(this.button8_Click);
+            this.btn_save1.Click += new System.EventHandler(this.btn_save1_Click);
             // 
             // btn_load2
             // 
@@ -186,6 +192,7 @@
             this.btn_save2.TabIndex = 4;
             this.btn_save2.Text = "저장";
             this.btn_save2.UseVisualStyleBackColor = true;
+            this.btn_save2.Click += new System.EventHandler(this.btn_save2_Click);
             // 
             // progressBar1
             // 
@@ -202,6 +209,7 @@
             this.btn_match.TabIndex = 11;
             this.btn_match.Text = "탬플릿매칭";
             this.btn_match.UseVisualStyleBackColor = true;
+            this.btn_match.Click += new System.EventHandler(this.btn_match_Click);
             // 
             // openFileDialog1
             // 
