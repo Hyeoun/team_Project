@@ -31,10 +31,30 @@ namespace team_Project {
         private void btn_save1_Click(object sender, EventArgs e)
         {
             //저장 누르면 모달로그 꺼내서 이미지 전체 저장 or 확대된 부분 저장
+            switch (MessageBox.Show("선택하신 부분을 저장하시겠습니까? \n (예 : 부분 저장, 아니요 : 전체 저장)",
+                "저장", MessageBoxButtons.YesNoCancel))
+            {
+                case DialogResult.Yes:
+                    break;
+                case DialogResult.No:
+                    break;
+                case DialogResult.Cancel:
+                    break;
+            }
         }
         private void btn_save2_Click(object sender, EventArgs e)
         {
             //저장 누르면 모달로그 꺼내서 이미지 전체 저장 or 확대된 부분 저장
+            switch (MessageBox.Show("선택하신 부분을 저장하시겠습니까? \n (예 : 부분 저장, 아니요 : 전체 저장)",
+                "저장", MessageBoxButtons.YesNoCancel))
+            {
+                case DialogResult.Yes:
+                    break;
+                case DialogResult.No:
+                    break;
+                case DialogResult.Cancel:
+                    break;
+            }
         }
         private void btn_exp_Click(object sender, EventArgs e)
         {
