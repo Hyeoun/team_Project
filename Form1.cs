@@ -42,7 +42,7 @@ namespace team_Project {
             {
                 Bitmap left_bmp = new Bitmap(LeftBox.Image);
                 Bitmap new_bmp = new Bitmap(left_bmp);
-                new_bmp.expansion_oper(left_bmp);
+                new_bmp.expansion_oper(left_bmp, ref progressBar1);
                 RightBox.Image = new_bmp;
             }
             catch (Exception ex)
@@ -56,7 +56,7 @@ namespace team_Project {
             {
                 Bitmap left_bmp = new Bitmap(LeftBox.Image);
                 Bitmap new_bmp = new Bitmap(left_bmp);
-                new_bmp.erosion_oper(left_bmp);
+                new_bmp.erosion_oper(left_bmp, ref progressBar1);
                 RightBox.Image = new_bmp;
             }
             catch (Exception ex)
@@ -69,7 +69,7 @@ namespace team_Project {
             try
             {
                 Bitmap right_bmp = new Bitmap(LeftBox.Image);
-                right_bmp.hist_equal_oper();
+                right_bmp.hist_equal_oper(ref progressBar1);
                 RightBox.Image = right_bmp;
             }
             catch (Exception ex)
@@ -82,7 +82,7 @@ namespace team_Project {
             try
             {
                 Bitmap right_bmp = new Bitmap(LeftBox.Image);
-                right_bmp.otsu_oper();
+                right_bmp.otsu_oper(ref progressBar1);
                 RightBox.Image = right_bmp;
             }
             catch (Exception ex)
@@ -98,7 +98,7 @@ namespace team_Project {
             {
                 Bitmap left_bmp = new Bitmap(LeftBox.Image);
                 Bitmap new_bmp = new Bitmap(left_bmp);
-                new_bmp.gaussian_oper(left_bmp);
+                new_bmp.gaussian_oper(left_bmp, ref progressBar1);
                 RightBox.Image = new_bmp;
             }
             catch (Exception ex)
@@ -114,7 +114,7 @@ namespace team_Project {
             {
                 Bitmap left_bmp = new Bitmap(LeftBox.Image);
                 Bitmap new_bmp = new Bitmap(left_bmp);
-                new_bmp.laplacian_oper(left_bmp);
+                new_bmp.laplacian_oper(left_bmp, ref progressBar1);
                 RightBox.Image = new_bmp;
             }
             catch (Exception ex)
