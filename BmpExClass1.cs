@@ -254,6 +254,45 @@ namespace team_Project {
                 pro.Value = (int)(((y + 1) * width) / (double)(width * height) * 100);
             }
         }
+        //public static Point match_img(this Bitmap my_img, Bitmap target_img)
+        //{
+        //    //미완성
+        //    Point result = new Point();
+        //    int o_width = my_img.Width;
+        //    int o_height = my_img.Height;
+        //    int s_width = target_img.Width;
+        //    int s_height = target_img.Height;
+        //    int x_len = o_width - s_width;
+        //    int y_len = o_height - s_height;
+        //    int min = 2100000000;
+
+        //    byte[] ori = my_img.get_img();
+        //    byte[] sam = target_img.get_img();
+
+        //    for (int i = 0; i < y_len; ++i)
+        //    {
+        //        for (int j = 0; j < x_len; ++j)
+        //        {
+        //            int sum = 0;
+        //            for (int y = 0; y < s_height; ++y)
+        //            {
+        //                for (int x = 0; x < s_width; ++x)
+        //                {
+        //                    int p = (x + j) + (y + i) * o_width;
+        //                    sum += (int)Math.Pow((ori[p] - sam[y * s_width + x]), 2);
+        //                }
+        //            }
+        //            if (sum < min)
+        //            {
+        //                min = sum;
+        //                result.X = j;
+        //                result.Y = i;
+        //            }
+        //        }
+
+        //    }
+        //    return result;
+        //}
 
         public static void save_bmp(this Bitmap my_img, in string loc)
         {

@@ -181,6 +181,7 @@ namespace team_Project {
             if (minimapdlg.open == false)
             {
                 minimapdlg = null;
+                LeftBox_Click(sender, e);
             }
         }
     }
