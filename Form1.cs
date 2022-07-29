@@ -177,11 +177,44 @@ namespace team_Project {
             }
             else
                 minimapdlg.Focus();
-            
-            if (minimapdlg.open == false)
+        }
+
+        private void LeftBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (LeftBox.Image == null)
             {
-                minimapdlg = null;
-                LeftBox_Click(sender, e);
+                label1.Text = $" X : {e.X}";
+                label2.Text = $" Y : {e.Y}";
+            }
+            else
+            {
+                int realX = (int)(e.X * ((double)LeftBox.Image.Width / (double)LeftBox.Width));
+                int realY = (int)(e.Y * ((double)LeftBox.Image.Height / (double)LeftBox.Height));
+
+                label1.Text = $"X : " + realX;
+                label2.Text = $"Y : " + realY;
+
+                Bitmap bitmap = new Bitmap(101, 101);
+
+                for (int i = -50; i < 50; ++i)
+                {
+                    for (int j = -50; j < 50; ++j)
+                    {
+                        if (((realX + i) < 0 || (realY + j) < 0 || (realY + j) >= LeftBox.Height || (realX + i) >= LeftBox.Width))
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            bitmap.SetPixel(50 + i, 50 + j, ((Bitmap)(LeftBox.Image)).GetPixel(realX + i, realY + j));
+
+                        }
+                    }
+                }
+                byte temp = ((Bitmap)(LeftBox.Image)).GetPixel(realX, realY).R;
+                lbl_gray.Text = $"Gray : {temp}";
+
+                scope_box.Image = bitmap;
             }
         }
     }
