@@ -184,10 +184,16 @@ namespace team_Project
             {
                 minimapdlg = new Minimapdlg(LeftBox);
                 minimapdlg.Owner = this;
-                minimapdlg?.Show();
+                minimapdlg?.Show();  //null이 아니면 show!
             }
             else
                 minimapdlg.Focus();
+
+            if(minimapdlg.open == false)
+            {
+                minimapdlg = null;
+                LeftBox_Click(sender, e);
+            }
         }
 
         private void LeftBox_MouseMove(object sender, MouseEventArgs e)

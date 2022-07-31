@@ -59,6 +59,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Minimapdlg";
             this.Text = "Form1";
+            this.Deactivate += new System.EventHandler(this.Minimapdlg_Deactivate);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.left_box)).EndInit();
             this.ResumeLayout(false);

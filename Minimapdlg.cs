@@ -6,6 +6,7 @@ namespace team_Project
 {
     public partial class Minimapdlg : Form
     {
+        public bool open = true;
         Point pt = new Point();
         Size rect_size = new Size();
 
@@ -154,6 +155,11 @@ namespace team_Project
         {
             if (x >= 0 && x < w && y >= 0 && y < h) { return true; }
             return false;
+        }
+
+        private void Minimapdlg_Deactivate(object sender, EventArgs e)
+        {
+            open = false;
         }
     }
 }
