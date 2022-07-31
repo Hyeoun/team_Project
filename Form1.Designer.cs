@@ -46,6 +46,8 @@
             this.btn_match = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.LeftBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RightBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scope_box)).BeginInit();
@@ -53,31 +55,32 @@
             // 
             // LeftBox
             // 
-            this.LeftBox.Location = new System.Drawing.Point(21, 58);
+            this.LeftBox.Location = new System.Drawing.Point(24, 72);
             this.LeftBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LeftBox.Name = "LeftBox";
-            this.LeftBox.Size = new System.Drawing.Size(324, 296);
+            this.LeftBox.Size = new System.Drawing.Size(370, 370);
             this.LeftBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.LeftBox.TabIndex = 0;
             this.LeftBox.TabStop = false;
             this.LeftBox.Click += new System.EventHandler(this.LeftBox_Click);
+            this.LeftBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LeftBox_MouseMove);
             // 
             // RightBox
             // 
-            this.RightBox.Location = new System.Drawing.Point(367, 58);
+            this.RightBox.Location = new System.Drawing.Point(419, 72);
             this.RightBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RightBox.Name = "RightBox";
-            this.RightBox.Size = new System.Drawing.Size(324, 296);
+            this.RightBox.Size = new System.Drawing.Size(370, 370);
             this.RightBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.RightBox.TabIndex = 0;
             this.RightBox.TabStop = false;
             // 
             // btn_exp
             // 
-            this.btn_exp.Location = new System.Drawing.Point(709, 19);
+            this.btn_exp.Location = new System.Drawing.Point(810, 24);
             this.btn_exp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_exp.Name = "btn_exp";
-            this.btn_exp.Size = new System.Drawing.Size(95, 26);
+            this.btn_exp.Size = new System.Drawing.Size(109, 32);
             this.btn_exp.TabIndex = 5;
             this.btn_exp.Text = "팽창연산";
             this.btn_exp.UseVisualStyleBackColor = true;
@@ -85,10 +88,10 @@
             // 
             // btn_ero
             // 
-            this.btn_ero.Location = new System.Drawing.Point(709, 58);
+            this.btn_ero.Location = new System.Drawing.Point(810, 72);
             this.btn_ero.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_ero.Name = "btn_ero";
-            this.btn_ero.Size = new System.Drawing.Size(95, 26);
+            this.btn_ero.Size = new System.Drawing.Size(109, 32);
             this.btn_ero.TabIndex = 6;
             this.btn_ero.Text = "침식연산";
             this.btn_ero.UseVisualStyleBackColor = true;
@@ -96,10 +99,10 @@
             // 
             // btn_hist
             // 
-            this.btn_hist.Location = new System.Drawing.Point(709, 98);
+            this.btn_hist.Location = new System.Drawing.Point(810, 122);
             this.btn_hist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_hist.Name = "btn_hist";
-            this.btn_hist.Size = new System.Drawing.Size(95, 26);
+            this.btn_hist.Size = new System.Drawing.Size(109, 32);
             this.btn_hist.TabIndex = 7;
             this.btn_hist.Text = "히스토그램";
             this.btn_hist.UseVisualStyleBackColor = true;
@@ -107,10 +110,10 @@
             // 
             // btn_otsu
             // 
-            this.btn_otsu.Location = new System.Drawing.Point(709, 136);
+            this.btn_otsu.Location = new System.Drawing.Point(810, 170);
             this.btn_otsu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_otsu.Name = "btn_otsu";
-            this.btn_otsu.Size = new System.Drawing.Size(95, 26);
+            this.btn_otsu.Size = new System.Drawing.Size(109, 32);
             this.btn_otsu.TabIndex = 8;
             this.btn_otsu.Text = "오츠이진화";
             this.btn_otsu.UseVisualStyleBackColor = true;
@@ -118,10 +121,10 @@
             // 
             // btn_gau
             // 
-            this.btn_gau.Location = new System.Drawing.Point(709, 175);
+            this.btn_gau.Location = new System.Drawing.Point(810, 219);
             this.btn_gau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_gau.Name = "btn_gau";
-            this.btn_gau.Size = new System.Drawing.Size(95, 26);
+            this.btn_gau.Size = new System.Drawing.Size(109, 32);
             this.btn_gau.TabIndex = 9;
             this.btn_gau.Text = "가우시안";
             this.btn_gau.UseVisualStyleBackColor = true;
@@ -129,10 +132,10 @@
             // 
             // btn_lap
             // 
-            this.btn_lap.Location = new System.Drawing.Point(709, 214);
+            this.btn_lap.Location = new System.Drawing.Point(810, 268);
             this.btn_lap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_lap.Name = "btn_lap";
-            this.btn_lap.Size = new System.Drawing.Size(95, 26);
+            this.btn_lap.Size = new System.Drawing.Size(109, 32);
             this.btn_lap.TabIndex = 10;
             this.btn_lap.Text = "라플라시안";
             this.btn_lap.UseVisualStyleBackColor = true;
@@ -140,10 +143,10 @@
             // 
             // scope_box
             // 
-            this.scope_box.Location = new System.Drawing.Point(714, 359);
+            this.scope_box.Location = new System.Drawing.Point(816, 449);
             this.scope_box.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.scope_box.Name = "scope_box";
-            this.scope_box.Size = new System.Drawing.Size(88, 80);
+            this.scope_box.Size = new System.Drawing.Size(101, 100);
             this.scope_box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.scope_box.TabIndex = 2;
             this.scope_box.TabStop = false;
@@ -151,18 +154,18 @@
             // lbl_gray
             // 
             this.lbl_gray.AutoSize = true;
-            this.lbl_gray.Location = new System.Drawing.Point(711, 332);
+            this.lbl_gray.Location = new System.Drawing.Point(813, 427);
             this.lbl_gray.Name = "lbl_gray";
-            this.lbl_gray.Size = new System.Drawing.Size(42, 12);
+            this.lbl_gray.Size = new System.Drawing.Size(50, 15);
             this.lbl_gray.TabIndex = 12;
             this.lbl_gray.Text = "gray : ";
             // 
             // btn_load1
             // 
-            this.btn_load1.Location = new System.Drawing.Point(73, 371);
+            this.btn_load1.Location = new System.Drawing.Point(83, 464);
             this.btn_load1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_load1.Name = "btn_load1";
-            this.btn_load1.Size = new System.Drawing.Size(95, 26);
+            this.btn_load1.Size = new System.Drawing.Size(109, 32);
             this.btn_load1.TabIndex = 1;
             this.btn_load1.Text = "불러오기";
             this.btn_load1.UseVisualStyleBackColor = true;
@@ -170,10 +173,10 @@
             // 
             // btn_save1
             // 
-            this.btn_save1.Location = new System.Drawing.Point(190, 371);
+            this.btn_save1.Location = new System.Drawing.Point(217, 464);
             this.btn_save1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_save1.Name = "btn_save1";
-            this.btn_save1.Size = new System.Drawing.Size(95, 26);
+            this.btn_save1.Size = new System.Drawing.Size(109, 32);
             this.btn_save1.TabIndex = 2;
             this.btn_save1.Text = "저장";
             this.btn_save1.UseVisualStyleBackColor = true;
@@ -181,10 +184,10 @@
             // 
             // btn_load2
             // 
-            this.btn_load2.Location = new System.Drawing.Point(419, 371);
+            this.btn_load2.Location = new System.Drawing.Point(479, 464);
             this.btn_load2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_load2.Name = "btn_load2";
-            this.btn_load2.Size = new System.Drawing.Size(95, 26);
+            this.btn_load2.Size = new System.Drawing.Size(109, 32);
             this.btn_load2.TabIndex = 3;
             this.btn_load2.Text = "불러오기";
             this.btn_load2.UseVisualStyleBackColor = true;
@@ -192,10 +195,10 @@
             // 
             // btn_save2
             // 
-            this.btn_save2.Location = new System.Drawing.Point(536, 371);
+            this.btn_save2.Location = new System.Drawing.Point(613, 464);
             this.btn_save2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_save2.Name = "btn_save2";
-            this.btn_save2.Size = new System.Drawing.Size(95, 26);
+            this.btn_save2.Size = new System.Drawing.Size(109, 32);
             this.btn_save2.TabIndex = 4;
             this.btn_save2.Text = "저장";
             this.btn_save2.UseVisualStyleBackColor = true;
@@ -203,18 +206,18 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(21, 420);
+            this.progressBar1.Location = new System.Drawing.Point(24, 525);
             this.progressBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(669, 18);
+            this.progressBar1.Size = new System.Drawing.Size(765, 22);
             this.progressBar1.TabIndex = 13;
             // 
             // btn_match
             // 
-            this.btn_match.Location = new System.Drawing.Point(709, 279);
+            this.btn_match.Location = new System.Drawing.Point(810, 349);
             this.btn_match.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_match.Name = "btn_match";
-            this.btn_match.Size = new System.Drawing.Size(95, 26);
+            this.btn_match.Size = new System.Drawing.Size(109, 32);
             this.btn_match.TabIndex = 11;
             this.btn_match.Text = "탬플릿매칭";
             this.btn_match.UseVisualStyleBackColor = true;
@@ -224,11 +227,31 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(852, 383);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(26, 15);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "X :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(852, 412);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(25, 15);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Y :";
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 456);
+            this.ClientSize = new System.Drawing.Size(941, 570);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lbl_gray);
             this.Controls.Add(this.scope_box);
@@ -276,6 +299,8 @@
         private System.Windows.Forms.Button btn_match;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
