@@ -234,5 +234,45 @@ namespace team_Project
                 scope_box.Image = bitmap;
             }
         }
+
+        private void RightBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (RightBox.Image == null)
+            {
+                label1.Text = $" X : {e.X}";
+                label2.Text = $" Y : {e.Y}";
+            }
+            else
+            {
+
+                int realX = (int)(e.X * ((double)RightBox.Image.Width / (double)RightBox.Width));
+                int realY = (int)(e.Y * ((double)RightBox.Image.Height / (double)RightBox.Height));
+
+                label1.Text = $"X : " + realX;
+                label2.Text = $"Y : " + realY;
+
+                Bitmap bitmap1 = new Bitmap(101, 101);
+
+                for (int i = -50; i < 50; ++i)
+                {
+                    for (int j = -50; j < 50; ++j)
+                    {
+                        if (((realX + i) < 0 || (realY + j) < 0 || (realY + j) >= RightBox.Image.Height || (realX + i) >= RightBox.Image.Width))
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            bitmap1.SetPixel(50 + i, 50 + j, ((Bitmap)(RightBox.Image)).GetPixel(realX + i, realY + j));
+
+                        }
+                    }
+                }
+                byte temp = ((Bitmap)(RightBox.Image)).GetPixel(realX, realY).R;
+                lbl_gray.Text = $"Gray : {temp}";
+
+                scope_box.Image = bitmap1;
+            }
+        }
     }
 }
