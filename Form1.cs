@@ -59,7 +59,6 @@ namespace team_Project
                     case DialogResult.No:
                         Save_dlg(new Bitmap(OriginImage));
                         break;
-                        break;
                     case DialogResult.Cancel:
                         break;
                 }
@@ -174,7 +173,13 @@ namespace team_Project
 
         private void btn_match_Click(object sender, EventArgs e)
         {
-
+            if (LeftBox.Image != null && RightBox.Image != null)
+            {
+                Bitmap left_bmp = new Bitmap(LeftBox.Image);
+                Bitmap right_bmp = new Bitmap(RightBox.Image);
+                Point match_p = left_bmp.match_img(right_bmp, ref progressBar1);
+                MessageBox.Show($"X:{match_p.X}, Y:{match_p.Y}");
+            }
         }
 
         private Minimapdlg minimapdlg = null;
