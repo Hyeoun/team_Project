@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace team_Project
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
         Image OriginImage;
 
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
             saveFileDialog1.DefaultExt = "bmp";
@@ -203,15 +203,25 @@ namespace team_Project
 
         private void LeftBox_MouseMove(object sender, MouseEventArgs e)
         {
-            if (LeftBox.Image == null)
+            scope_img(ref LeftBox, e);
+        }
+
+        private void RightBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            scope_img(ref RightBox, e);
+        }
+
+        private void scope_img(ref PictureBox pic_box, MouseEventArgs e)
+        {
+            if (pic_box.Image == null)
             {
                 label1.Text = $" X : {e.X}";
                 label2.Text = $" Y : {e.Y}";
             }
             else
             {
-                int realX = (int)(e.X * ((double)LeftBox.Image.Width / (double)LeftBox.Width));
-                int realY = (int)(e.Y * ((double)LeftBox.Image.Height / (double)LeftBox.Height));
+                int realX = (int)(e.X * ((double)pic_box.Image.Width / (double)pic_box.Width));
+                int realY = (int)(e.Y * ((double)pic_box.Image.Height / (double)pic_box.Height));
 
                 label1.Text = $"X : " + realX;
                 label2.Text = $"Y : " + realY;
@@ -222,61 +232,21 @@ namespace team_Project
                 {
                     for (int j = -15; j < 15; ++j)
                     {
-                        if (((realX + i) < 0 || (realY + j) < 0 || (realY + j) >= LeftBox.Image.Height || (realX + i) >= LeftBox.Image.Width))
+                        if (((realX + i) < 0 || (realY + j) < 0 || (realY + j) >= pic_box.Image.Height || (realX + i) >= pic_box.Image.Width))
                         {
                             continue;
                         }
                         else
                         {
-                            bitmap.SetPixel(15 + i, 15 + j, ((Bitmap)(LeftBox.Image)).GetPixel(realX + i, realY + j));
+                            bitmap.SetPixel(15 + i, 15 + j, ((Bitmap)(pic_box.Image)).GetPixel(realX + i, realY + j));
 
                         }
                     }
                 }
-                byte temp = ((Bitmap)(LeftBox.Image)).GetPixel(realX, realY).R;
+                byte temp = ((Bitmap)(pic_box.Image)).GetPixel(realX, realY).R;
                 lbl_gray.Text = $"Gray : {temp}";
 
                 scope_box.Image = bitmap;
-            }
-        }
-
-        private void RightBox_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (RightBox.Image == null)
-            {
-                label1.Text = $" X : {e.X}";
-                label2.Text = $" Y : {e.Y}";
-            }
-            else
-            {
-
-                int realX = (int)(e.X * ((double)RightBox.Image.Width / (double)RightBox.Width));
-                int realY = (int)(e.Y * ((double)RightBox.Image.Height / (double)RightBox.Height));
-
-                label1.Text = $"X : " + realX;
-                label2.Text = $"Y : " + realY;
-
-                Bitmap bitmap1 = new Bitmap(31, 31);
-
-                for (int i = -15; i < 15; ++i)
-                {
-                    for (int j = -15; j < 15; ++j)
-                    {
-                        if (((realX + i) < 0 || (realY + j) < 0 || (realY + j) >= RightBox.Image.Height || (realX + i) >= RightBox.Image.Width))
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            bitmap1.SetPixel(15 + i, 15 + j, ((Bitmap)(RightBox.Image)).GetPixel(realX + i, realY + j));
-
-                        }
-                    }
-                }
-                byte temp = ((Bitmap)(RightBox.Image)).GetPixel(realX, realY).R;
-                lbl_gray.Text = $"Gray : {temp}";
-
-                scope_box.Image = bitmap1;
             }
         }
     }

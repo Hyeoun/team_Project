@@ -89,7 +89,7 @@ namespace team_Project {
                     }
                     my_img.SetPixel(x, y, Color.FromArgb(max, max, max));
                 }
-                pro.Value = (int)(((y + 1) * width) / (double)(width * height) * 100);
+                pro.Value = (int)((y + 1) / (double)height * 100);
             }
         }
         public static void erosion_oper(this Bitmap my_img, Bitmap ori_img, ref ProgressBar pro)
@@ -112,7 +112,7 @@ namespace team_Project {
                     }
                     my_img.SetPixel(x, y, Color.FromArgb(min, min, min));
                 }
-                pro.Value = (int)(((y + 1) * width) / (double)(width * height) * 100);
+                pro.Value = (int)((y + 1) / (double)height * 100);
             }
         }
         public static void hist_equal_oper(this Bitmap my_img, ref ProgressBar pro)
@@ -139,7 +139,7 @@ namespace team_Project {
                     byte temp = (byte)hist[my_img.GetPixel(j, i).R];
                     my_img.SetPixel(j, i, Color.FromArgb(temp, temp, temp));
                 }
-                pro.Value = (int)(((i + 1) * width) / (double)(width * height) * 100);
+                pro.Value = (int)((i + 1) / (double)width * 100);
             }
         }
         public static void otsu_oper(this Bitmap my_img, ref ProgressBar pro)
@@ -190,7 +190,7 @@ namespace team_Project {
                         my_img.SetPixel(j, i, Color.FromArgb(0, 0, 0));
                     }
                 }
-                pro.Value = (int)(((i + 1) * width) / (double)(width * height) * 100);
+                pro.Value = (int)((i + 1) / (double)height * 100);
             }
         }
         public static void gaussian_oper(this Bitmap my_img, Bitmap ori_img, ref ProgressBar pro)
@@ -221,7 +221,7 @@ namespace team_Project {
                     }
                     my_img.SetPixel(x, y, Color.FromArgb(pix, pix, pix));
                 }
-                pro.Value = (int)(((y + 1) * width) / (double)(width * height) * 100);
+                pro.Value = (int)((y + 1) / (double)height * 100);
             }
         }
         public static void laplacian_oper(this Bitmap my_img, Bitmap ori_img, ref ProgressBar pro)
@@ -251,7 +251,7 @@ namespace team_Project {
                     }
                     my_img.SetPixel(x, y, Color.FromArgb((byte)(pix + 128), (byte)(pix + 128), (byte)(pix + 128)));
                 }
-                pro.Value = (int)(((y + 1) * width) / (double)(width * height) * 100);
+                pro.Value = (int)((y + 1) / (double)height * 100);
             }
         }
         public static Point match_img(this Bitmap my_img, Bitmap target_img, ref ProgressBar pro)
