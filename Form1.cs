@@ -211,11 +211,11 @@ namespace team_Project
                 label1.Text = $"X : " + realX;
                 label2.Text = $"Y : " + realY;
 
-                Bitmap bitmap = new Bitmap(101, 101);
+                Bitmap bitmap = new Bitmap(31, 31);
 
-                for (int i = -50; i < 50; ++i)
+                for (int i = -15; i < 15; ++i)
                 {
-                    for (int j = -50; j < 50; ++j)
+                    for (int j = -15; j < 15; ++j)
                     {
                         if (((realX + i) < 0 || (realY + j) < 0 || (realY + j) >= LeftBox.Image.Height || (realX + i) >= LeftBox.Image.Width))
                         {
@@ -223,7 +223,7 @@ namespace team_Project
                         }
                         else
                         {
-                            bitmap.SetPixel(50 + i, 50 + j, ((Bitmap)(LeftBox.Image)).GetPixel(realX + i, realY + j));
+                            bitmap.SetPixel(15 + i, 15 + j, ((Bitmap)(LeftBox.Image)).GetPixel(realX + i, realY + j));
 
                         }
                     }
@@ -251,11 +251,11 @@ namespace team_Project
                 label1.Text = $"X : " + realX;
                 label2.Text = $"Y : " + realY;
 
-                Bitmap bitmap1 = new Bitmap(101, 101);
+                Bitmap bitmap1 = new Bitmap(31, 31);
 
-                for (int i = -50; i < 50; ++i)
+                for (int i = -15; i < 15; ++i)
                 {
-                    for (int j = -50; j < 50; ++j)
+                    for (int j = -15; j < 15; ++j)
                     {
                         if (((realX + i) < 0 || (realY + j) < 0 || (realY + j) >= RightBox.Image.Height || (realX + i) >= RightBox.Image.Width))
                         {
@@ -263,7 +263,7 @@ namespace team_Project
                         }
                         else
                         {
-                            bitmap1.SetPixel(50 + i, 50 + j, ((Bitmap)(RightBox.Image)).GetPixel(realX + i, realY + j));
+                            bitmap1.SetPixel(15 + i, 15 + j, ((Bitmap)(RightBox.Image)).GetPixel(realX + i, realY + j));
 
                         }
                     }
