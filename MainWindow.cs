@@ -15,6 +15,7 @@ namespace team_Project
         Bitmap O_left_img;
         Bitmap O_right_img;
         public static Rectangle rect;
+        public static Rectangle rect2;
         private Minimapdlg minimapdlg = null;
 
         bool isModalOpened = false;
@@ -30,8 +31,9 @@ namespace team_Project
         {
             if (image != null)
             {
+                rect2 = rect;
                 Bitmap cutBitmap = new Bitmap(image);
-                cutBitmap = cutBitmap.Clone(new Rectangle(rect.X, rect.Y, rect.Width, rect.Height), System.Drawing.Imaging.PixelFormat.Undefined);
+                cutBitmap = cutBitmap.Clone(new Rectangle(rect2.X, rect2.Y, rect2.Width, rect2.Height), System.Drawing.Imaging.PixelFormat.Undefined);
 
                 return cutBitmap;
             }
@@ -50,6 +52,10 @@ namespace team_Project
                 rect.Y = 0;
                 rect.Width = O_left_img.Width;
                 rect.Height = O_left_img.Height;
+                rect2.X = 0;
+                rect2.Y = 0;
+                rect2.Width = O_left_img.Width;
+                rect2.Height = O_left_img.Height;
             }
         }
         private void btn_load2_Click(object sender, EventArgs e)
@@ -231,7 +237,7 @@ namespace team_Project
             if (minimapdlg == null)
             {
                 isModalOpened = true;
-                minimapdlg = new Minimapdlg(RightBox, O_right_img);
+                minimapdlg = new Minimapdlg(RightBox, O_right_img, false);
                 minimapdlg.FormClosed += (o, exx) => isModalOpened = false;
                 minimapdlg.Owner = this;
                 minimapdlg?.Show();

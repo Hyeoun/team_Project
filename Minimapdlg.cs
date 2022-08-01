@@ -7,21 +7,33 @@ namespace team_Project
     public partial class Minimapdlg : Form
     {
         public bool open = true;
+        bool loc_left;
         Point pt = new Point();
         Size rect_size = new Size();
         Bitmap img;
         PictureBox new_c_box;
 
-        public Minimapdlg(PictureBox new_c_box, Bitmap oImage)
+        public Minimapdlg(PictureBox new_c_box, Bitmap oImage, bool loc_left = true)
         {
             InitializeComponent();
             this.new_c_box = new_c_box;
             this.img = new Bitmap(oImage);
             zoom_box.Image = img;
-            rect_size.Width = (int)((zoom_box.Width / (double)oImage.Width) * MainWindow.rect.Width);
-            rect_size.Height = (int)((zoom_box.Height / (double)oImage.Height) * MainWindow.rect.Height);
-            pt.X = (int)((zoom_box.Width / (double)img.Width) * MainWindow.rect.X);
-            pt.Y = (int)((zoom_box.Height / (double)img.Height) * MainWindow.rect.Y);
+            this.loc_left = loc_left;
+            if (this.loc_left)
+            {
+                rect_size.Width = (int)((zoom_box.Width / (double)oImage.Width) * MainWindow.rect.Width);
+                rect_size.Height = (int)((zoom_box.Height / (double)oImage.Height) * MainWindow.rect.Height);
+                pt.X = (int)((zoom_box.Width / (double)img.Width) * MainWindow.rect.X);
+                pt.Y = (int)((zoom_box.Height / (double)img.Height) * MainWindow.rect.Y);
+            }
+            else
+            {
+                rect_size.Width = (int)((zoom_box.Width / (double)oImage.Width) * MainWindow.rect2.Width);
+                rect_size.Height = (int)((zoom_box.Height / (double)oImage.Height) * MainWindow.rect2.Height);
+                pt.X = (int)((zoom_box.Width / (double)img.Width) * MainWindow.rect2.X);
+                pt.Y = (int)((zoom_box.Height / (double)img.Height) * MainWindow.rect2.Y);
+            }
         }
 
         private void left_box_Paint(object sender, PaintEventArgs e)
@@ -30,10 +42,20 @@ namespace team_Project
             {
                 Rectangle rt = new Rectangle(pt.X, pt.Y, rect_size.Width-2, rect_size.Height-2);
                 e.Graphics.DrawRectangle(new Pen(Color.Red, 2), rt);
-                MainWindow.rect.X = (int)((img.Width / (double)zoom_box.Width) * pt.X);
-                MainWindow.rect.Y = (int)((img.Height / (double)zoom_box.Height) * pt.Y);
-                MainWindow.rect.Width = (int)((img.Width / (double)zoom_box.Width) * rect_size.Width);
-                MainWindow.rect.Height = (int)((img.Height / (double)zoom_box.Height) * rect_size.Height);
+                if (loc_left)
+                {
+                    MainWindow.rect.Width = (int)((img.Width / (double)zoom_box.Width) * rect_size.Width);
+                    MainWindow.rect.Height = (int)((img.Height / (double)zoom_box.Height) * rect_size.Height);
+                    MainWindow.rect.X = (int)((img.Width / (double)zoom_box.Width) * pt.X);
+                    MainWindow.rect.Y = (int)((img.Height / (double)zoom_box.Height) * pt.Y);
+                }
+                else
+                {
+                    MainWindow.rect2.Width = (int)((img.Width / (double)zoom_box.Width) * rect_size.Width);
+                    MainWindow.rect2.Height = (int)((img.Height / (double)zoom_box.Height) * rect_size.Height);
+                    MainWindow.rect2.X = (int)((img.Width / (double)zoom_box.Width) * pt.X);
+                    MainWindow.rect2.Y = (int)((img.Height / (double)zoom_box.Height) * pt.Y);
+                }
                 Show_Img();
             }
         }
