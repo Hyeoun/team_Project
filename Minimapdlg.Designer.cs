@@ -39,7 +39,7 @@
             this.left_box.Location = new System.Drawing.Point(25, 98);
             this.left_box.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.left_box.Name = "left_box";
-            this.left_box.Size = new System.Drawing.Size(400, 400);
+            this.left_box.Size = new System.Drawing.Size(370, 370);
             this.left_box.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.left_box.TabIndex = 0;
             this.left_box.TabStop = false;

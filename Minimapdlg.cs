@@ -17,8 +17,8 @@ namespace team_Project
             InitializeComponent();
             this.new_left_box = new_left_box;
             left_box.Image = new_left_box.Image;
-            rect_size.Width = left_box.Width - 2;
-            rect_size.Height = left_box.Height - 2;
+            rect_size.Width = left_box.Width;
+            rect_size.Height = left_box.Height;
         }
 
         private void btn_open_Click(object sender, EventArgs e)
@@ -43,11 +43,11 @@ namespace team_Project
             if (left_box.Image != null && e.Button == MouseButtons.Left)
             {
                 Size msize = new Size(rect_size.Width / 2, rect_size.Height / 2);
-                if (e.X - msize.Width >= 0 && e.X + msize.Width < left_box.Width - 2)
+                if (e.X - msize.Width >= 0 && e.X + msize.Width < left_box.Width)
                 {
                     pt.X = e.X - msize.Width;
                 }
-                if (e.Y - msize.Height >= 0 && e.Y + msize.Height < left_box.Height - 2)
+                if (e.Y - msize.Height >= 0 && e.Y + msize.Height < left_box.Height)
                 {
                     pt.Y = e.Y - msize.Height;
                 }
@@ -117,8 +117,8 @@ namespace team_Project
                 {
                     pt.X = 0;
                     pt.Y = 0;
-                    rect_size.Width = left_box.Width - 2;
-                    rect_size.Height = left_box.Height - 2;
+                    rect_size.Width = left_box.Width;
+                    rect_size.Height = left_box.Height;
                 }
                 left_box.Refresh();
             }
