@@ -15,6 +15,7 @@ namespace team_Project
         Bitmap O_left_img;
         Bitmap O_right_img;
         public static Rectangle rect;
+        private Minimapdlg minimapdlg = null;
         public MainWindow()
         {
             InitializeComponent();
@@ -178,7 +179,7 @@ namespace team_Project
                 MessageBox.Show($"X:{match_p.X}, Y:{match_p.Y}");
             }
         }
-        private Minimapdlg minimapdlg = null;
+        
         private void LeftBox_Click(object sender, EventArgs e)
         {
             if (minimapdlg == null)

@@ -256,7 +256,6 @@ namespace team_Project {
         }
         public static Point match_img(this Bitmap my_img, Bitmap target_img, ProgressBar pro)
         {
-            //미완성
             Point result = new Point();
             int o_width = my_img.Width;
             int o_height = my_img.Height;
