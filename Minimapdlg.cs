@@ -32,7 +32,7 @@ namespace team_Project
         {
             if (left_box.Image != null)
             {
-                Rectangle rt = new Rectangle(pt.X, pt.Y, rect_size.Width, rect_size.Height);
+                Rectangle rt = new Rectangle(pt.X, pt.Y, rect_size.Width-2, rect_size.Height-2);
                 e.Graphics.DrawRectangle(new Pen(Color.Red, 2), rt);
                 Show_Img();
             }
