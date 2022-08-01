@@ -16,6 +16,9 @@ namespace team_Project
         Bitmap O_right_img;
         public static Rectangle rect;
         private Minimapdlg minimapdlg = null;
+
+        bool isModalOpened = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -23,6 +26,20 @@ namespace team_Project
             saveFileDialog1.Filter = "BMP files(*.bmp)|*.bmp";
         }
 
+        public static Image resizeImage(Image image)
+        {
+            if (image != null)
+            {
+                Bitmap cutBitmap = new Bitmap(image);
+                cutBitmap = cutBitmap.Clone(new Rectangle(rect.X, rect.Y, rect.Width, rect.Height), System.Drawing.Imaging.PixelFormat.Undefined);
+
+                return cutBitmap;
+            }
+            else
+            {
+                return image;
+            }
+        }
         private void btn_load1_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -95,7 +112,7 @@ namespace team_Project
             {
                 O_right_img = new Bitmap(O_left_img);
                 O_right_img.expansion_oper(O_left_img, progressBar1);
-                RightBox.Image = O_right_img;
+                RightBox.Image = resizeImage(O_right_img);
             }
             catch (Exception ex)
             {
@@ -108,7 +125,7 @@ namespace team_Project
             {
                 O_right_img = new Bitmap(O_left_img);
                 O_right_img.erosion_oper(O_left_img, progressBar1);
-                RightBox.Image = O_right_img;
+                RightBox.Image = resizeImage(O_right_img);
             }
             catch (Exception ex)
             {
@@ -121,7 +138,7 @@ namespace team_Project
             {
                 O_right_img = new Bitmap(O_left_img);
                 O_right_img.hist_equal_oper(progressBar1);
-                RightBox.Image = O_right_img;
+                RightBox.Image = resizeImage(O_right_img);
             }
             catch (Exception ex)
             {
@@ -134,7 +151,7 @@ namespace team_Project
             {
                 O_right_img = new Bitmap(O_left_img);
                 O_right_img.otsu_oper(progressBar1);
-                RightBox.Image = O_right_img;
+                RightBox.Image = resizeImage(O_right_img);
             }
             catch (Exception ex)
             {
@@ -147,7 +164,7 @@ namespace team_Project
             {
                 O_right_img = new Bitmap(O_left_img);
                 O_right_img.gaussian_oper(O_left_img, progressBar1);
-                RightBox.Image = O_right_img;
+                RightBox.Image = resizeImage(O_right_img);
             }
             catch (Exception ex)
             {
@@ -161,7 +178,7 @@ namespace team_Project
             {
                 O_right_img = new Bitmap(O_left_img);
                 O_right_img.laplacian_oper(O_left_img, progressBar1);
-                RightBox.Image = O_right_img;
+                RightBox.Image = resizeImage(O_right_img);
             }
             catch (Exception ex)
             {
@@ -179,19 +196,26 @@ namespace team_Project
                 MessageBox.Show($"X:{match_p.X}, Y:{match_p.Y}");
             }
         }
-        
+
         private void LeftBox_Click(object sender, EventArgs e)
         {
+            if (isModalOpened)
+            {
+                return;
+            }
+
             if (minimapdlg == null)
             {
+                isModalOpened = true;
                 minimapdlg = new Minimapdlg(LeftBox, O_left_img);
+                minimapdlg.FormClosed += (o, exx) => isModalOpened = false;
                 minimapdlg.Owner = this;
                 minimapdlg?.Show();  //null이 아니면 show!
             }
             else
                 minimapdlg.Focus();
 
-            if(minimapdlg.open == false)
+            if (minimapdlg.open == false)
             {
                 minimapdlg = null;
                 LeftBox_Click(sender, e);
@@ -199,11 +223,18 @@ namespace team_Project
         }
         private void RightBox_Click(object sender, EventArgs e)
         {
+            if (isModalOpened)
+            {
+                return;
+            }
+
             if (minimapdlg == null)
             {
+                isModalOpened = true;
                 minimapdlg = new Minimapdlg(RightBox, O_right_img);
+                minimapdlg.FormClosed += (o, exx) => isModalOpened = false;
                 minimapdlg.Owner = this;
-                minimapdlg?.Show();  //null이 아니면 show!
+                minimapdlg?.Show();
             }
             else
                 minimapdlg.Focus();
@@ -214,14 +245,17 @@ namespace team_Project
                 RightBox_Click(sender, e);
             }
         }
+
         private void LeftBox_MouseMove(object sender, MouseEventArgs e)
         {
             scope_img(ref LeftBox, e);
         }
+
         private void RightBox_MouseMove(object sender, MouseEventArgs e)
         {
             scope_img(ref RightBox, e);
         }
+
         private void scope_img(ref PictureBox pic_box, MouseEventArgs e)
         {
             if (pic_box.Image == null)
@@ -250,7 +284,6 @@ namespace team_Project
                         else
                         {
                             bitmap.SetPixel(15 + i, 15 + j, ((Bitmap)(pic_box.Image)).GetPixel(realX + i, realY + j));
-
                         }
                     }
                 }
@@ -261,6 +294,7 @@ namespace team_Project
             }
         }
 
-        
+
     }
 }
+
