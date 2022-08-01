@@ -268,8 +268,11 @@ namespace team_Project
                 int realX = (int)(e.X * ((double)pic_box.Image.Width / (double)pic_box.Width));
                 int realY = (int)(e.Y * ((double)pic_box.Image.Height / (double)pic_box.Height));
 
-                label1.Text = $"X : " + realX;
-                label2.Text = $"Y : " + realY;
+                //label1.Text = $"X : " + realX;
+                //label2.Text = $"Y : " + realY;
+
+                label1.Text = $"X : {realX + rect.X}";
+                label2.Text = $"Y : {realY + rect.Y}";
 
                 Bitmap bitmap = new Bitmap(31, 31);
 
