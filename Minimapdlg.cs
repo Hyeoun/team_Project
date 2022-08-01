@@ -20,6 +20,7 @@ namespace team_Project
             zoom_box.Image = img;
             rect_size.Width = (int)((zoom_box.Width / (double)oImage.Width) * MainWindow.rect.Width);
             rect_size.Height = (int)((zoom_box.Height / (double)oImage.Height) * MainWindow.rect.Height);
+            pt = MainWindow.rect.Location;
         }
 
         private void left_box_Paint(object sender, PaintEventArgs e)
