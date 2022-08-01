@@ -199,7 +199,7 @@ namespace team_Project
 
         private void LeftBox_Click(object sender, EventArgs e)
         {
-            if (isModalOpened)
+            if (isModalOpened || LeftBox.Image == null)
             {
                 return;
             }
@@ -223,7 +223,7 @@ namespace team_Project
         }
         private void RightBox_Click(object sender, EventArgs e)
         {
-            if (isModalOpened)
+            if (isModalOpened || RightBox.Image == null)
             {
                 return;
             }
@@ -268,11 +268,8 @@ namespace team_Project
                 int realX = (int)(e.X * ((double)pic_box.Image.Width / (double)pic_box.Width));
                 int realY = (int)(e.Y * ((double)pic_box.Image.Height / (double)pic_box.Height));
 
-                //label1.Text = $"X : " + realX;
-                //label2.Text = $"Y : " + realY;
-
-                label1.Text = $"X : {realX + rect.X}";
-                label2.Text = $"Y : {realY + rect.Y}";
+                label1.Text = $"X : " + realX;
+                label2.Text = $"Y : " + realY;
 
                 Bitmap bitmap = new Bitmap(31, 31);
 
