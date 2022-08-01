@@ -69,7 +69,7 @@ namespace team_Project {
                 }
             }
         }
-        public static void expansion_oper(this Bitmap my_img, Bitmap ori_img, ref ProgressBar pro)
+        public static void expansion_oper(this Bitmap my_img, Bitmap ori_img, ProgressBar pro)
         {
             int width = my_img.Width;
             int height = my_img.Height;
@@ -92,7 +92,7 @@ namespace team_Project {
                 pro.Value = (int)((y + 1) / (double)height * 100);
             }
         }
-        public static void erosion_oper(this Bitmap my_img, Bitmap ori_img, ref ProgressBar pro)
+        public static void erosion_oper(this Bitmap my_img, Bitmap ori_img, ProgressBar pro)
         {
             int width = my_img.Width;
             int height = my_img.Height;
@@ -115,7 +115,7 @@ namespace team_Project {
                 pro.Value = (int)((y + 1) / (double)height * 100);
             }
         }
-        public static void hist_equal_oper(this Bitmap my_img, ref ProgressBar pro)
+        public static void hist_equal_oper(this Bitmap my_img, ProgressBar pro)
         {
             int[] hist = Enumerable.Repeat<int>(0, 256).ToArray();
             int[] arr = Enumerable.Repeat<int>(0, 256).ToArray();
@@ -142,7 +142,7 @@ namespace team_Project {
                 pro.Value = (int)((i + 1) / (double)width * 100);
             }
         }
-        public static void otsu_oper(this Bitmap my_img, ref ProgressBar pro)
+        public static void otsu_oper(this Bitmap my_img, ProgressBar pro)
         {
             int width = my_img.Width;
             int height = my_img.Height;
@@ -193,7 +193,7 @@ namespace team_Project {
                 pro.Value = (int)((i + 1) / (double)height * 100);
             }
         }
-        public static void gaussian_oper(this Bitmap my_img, Bitmap ori_img, ref ProgressBar pro)
+        public static void gaussian_oper(this Bitmap my_img, Bitmap ori_img, ProgressBar pro)
         {
             int width = my_img.Width;
             int height = my_img.Height;
@@ -224,7 +224,7 @@ namespace team_Project {
                 pro.Value = (int)((y + 1) / (double)height * 100);
             }
         }
-        public static void laplacian_oper(this Bitmap my_img, Bitmap ori_img, ref ProgressBar pro)
+        public static void laplacian_oper(this Bitmap my_img, Bitmap ori_img, ProgressBar pro)
         {
             int width = my_img.Width;
             int height = my_img.Height;
@@ -254,7 +254,7 @@ namespace team_Project {
                 pro.Value = (int)((y + 1) / (double)height * 100);
             }
         }
-        public static Point match_img(this Bitmap my_img, Bitmap target_img, ref ProgressBar pro)
+        public static Point match_img(this Bitmap my_img, Bitmap target_img, ProgressBar pro)
         {
             //미완성
             Point result = new Point();
@@ -266,29 +266,80 @@ namespace team_Project {
             int y_len = o_height - s_height;
             int min = 2100000000;
 
-            for (int i = 0; i < y_len; ++i)
+            byte[] ori = new byte[o_width * o_height];
+            for (int i = 0; i < o_height; i++)
             {
-                for (int j = 0; j < x_len; ++j)
+                for (int j = 0; j < o_width; j++)
                 {
-                    int sum = 0;
-                    for (int y = 0; y < s_height; ++y)
-                    {
-                        for (int x = 0; x < s_width; ++x)
-                        {
-                            int p = (x + j) + (y + i) * o_width;
-                            sum += (int)Math.Pow((my_img.GetPixel(x + j, y + i).R - target_img.GetPixel(x, y).R), 2);
-                        }
-                    }
-                    if (sum < min)
-                    {
-                        min = sum;
-                        result.X = j;
-                        result.Y = i;
-                    }
+                    ori[i * o_width + j] = my_img.GetPixel(j, i).R;
                 }
-                pro.Value = (int)((i + 1) / (double)y_len * 100);
-                Console.WriteLine((int)((i + 1) / (double)y_len * 100));
             }
+            byte[] sam = new byte[s_width * s_height];
+            for (int i = 0; i < s_height; i++)
+            {
+                for (int j = 0; j < s_width; j++)
+                {
+                    sam[i * s_width + j] = target_img.GetPixel(j, i).R;
+                }
+            }
+
+            int thread_count = 5;
+            int th_range = x_len / thread_count;
+            Task[] tasks = new Task[thread_count];
+            object key1 = new object();
+            object key2 = new object();
+            object key3 = new object();
+
+            int n = 0;
+            int proc = 0;
+            for (int z = 0; z < thread_count; z++)
+            {
+                tasks[z] = Task.Run(() =>
+                {
+                    int coun = 0;
+                    lock (key1)
+                    {
+                        coun = n++;
+                    }
+                    int tr = th_range * (coun + 1);
+                    if (coun == thread_count - 1) { tr = y_len; }
+
+                    for (int i = th_range * coun; i < tr; ++i)
+                    {
+                        for (int j = 0; j < x_len; ++j)
+                        {
+                            int sum = 0;
+                            for (int y = 0; y < s_height; ++y)
+                            {
+                                for (int x = 0; x < s_width; ++x)
+                                {
+                                    int p = (x + j) + (y + i) * o_width;
+                                    sum += (int)Math.Pow((ori[p] - sam[y * s_width + x]), 2);
+                                }
+                            }
+                            if (sum < min)
+                            {
+                                lock (key2)
+                                {
+                                    if (sum < min)
+                                    {
+                                        min = sum;
+                                        result.X = j;
+                                        result.Y = i;
+                                    }
+                                }
+                            }
+                        }
+                        lock (key3)
+                        {
+                            proc += x_len;
+                            pro.Value = (int)(proc / (double)(x_len * y_len) * 100);
+                        }
+
+                    }
+                });
+            }
+            Task.WaitAll(tasks);
             return result;
         }
 
