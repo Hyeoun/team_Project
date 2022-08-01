@@ -30,6 +30,8 @@
         {
             this.zoom_box = new System.Windows.Forms.PictureBox();
             this.OpenFiledlg = new System.Windows.Forms.OpenFileDialog();
+            this.btn_zoom_in = new System.Windows.Forms.Button();
+            this.btn_zoom_out = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.zoom_box)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,11 +51,33 @@
             // 
             this.OpenFiledlg.FileName = "OpenFiledlg";
             // 
+            // btn_zoom_in
+            // 
+            this.btn_zoom_in.Location = new System.Drawing.Point(97, 46);
+            this.btn_zoom_in.Name = "btn_zoom_in";
+            this.btn_zoom_in.Size = new System.Drawing.Size(83, 36);
+            this.btn_zoom_in.TabIndex = 1;
+            this.btn_zoom_in.Text = "확대";
+            this.btn_zoom_in.UseVisualStyleBackColor = true;
+            this.btn_zoom_in.Click += new System.EventHandler(this.btn_zoom_in_Click);
+            // 
+            // btn_zoom_out
+            // 
+            this.btn_zoom_out.Location = new System.Drawing.Point(208, 46);
+            this.btn_zoom_out.Name = "btn_zoom_out";
+            this.btn_zoom_out.Size = new System.Drawing.Size(83, 36);
+            this.btn_zoom_out.TabIndex = 1;
+            this.btn_zoom_out.Text = "축소";
+            this.btn_zoom_out.UseVisualStyleBackColor = true;
+            this.btn_zoom_out.Click += new System.EventHandler(this.btn_zoom_out_Click);
+            // 
             // Minimapdlg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(454, 519);
+            this.Controls.Add(this.btn_zoom_out);
+            this.Controls.Add(this.btn_zoom_in);
             this.Controls.Add(this.zoom_box);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Minimapdlg";
@@ -69,6 +93,8 @@
 
         private System.Windows.Forms.PictureBox zoom_box;
         private System.Windows.Forms.OpenFileDialog OpenFiledlg;
+        private System.Windows.Forms.Button btn_zoom_in;
+        private System.Windows.Forms.Button btn_zoom_out;
     }
 }
 

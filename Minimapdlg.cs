@@ -55,14 +55,14 @@ namespace team_Project
         }
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                Zoom_Out();
-            }
-            else if (e.Button == MouseButtons.Left)
-            {
-                Zoom_In();
-            }
+            //if (e.Button == MouseButtons.Right)
+            //{
+            //    Zoom_Out();
+            //}
+            //else if (e.Button == MouseButtons.Left)
+            //{
+            //    Zoom_In();
+            //}
         }
         private void Zoom_In()
         {
@@ -150,6 +150,16 @@ namespace team_Project
         private void Minimapdlg_Deactivate(object sender, EventArgs e)
         {
             open = false;
+        }
+
+        private void btn_zoom_in_Click(object sender, EventArgs e)
+        {
+            Zoom_In();
+        }
+
+        private void btn_zoom_out_Click(object sender, EventArgs e)
+        {
+            Zoom_Out();
         }
     }
 }
