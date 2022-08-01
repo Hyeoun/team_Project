@@ -20,7 +20,8 @@ namespace team_Project
             zoom_box.Image = img;
             rect_size.Width = (int)((zoom_box.Width / (double)oImage.Width) * MainWindow.rect.Width);
             rect_size.Height = (int)((zoom_box.Height / (double)oImage.Height) * MainWindow.rect.Height);
-            pt = MainWindow.rect.Location;
+            pt.X = (int)((zoom_box.Width / (double)img.Width) * MainWindow.rect.X);
+            pt.Y = (int)((zoom_box.Height / (double)img.Height) * MainWindow.rect.Y);
         }
 
         private void left_box_Paint(object sender, PaintEventArgs e)
@@ -29,7 +30,8 @@ namespace team_Project
             {
                 Rectangle rt = new Rectangle(pt.X, pt.Y, rect_size.Width-2, rect_size.Height-2);
                 e.Graphics.DrawRectangle(new Pen(Color.Red, 2), rt);
-                MainWindow.rect.Location = pt;
+                MainWindow.rect.X = (int)((img.Width / (double)zoom_box.Width) * pt.X);
+                MainWindow.rect.Y = (int)((img.Height / (double)zoom_box.Height) * pt.Y);
                 MainWindow.rect.Width = (int)((img.Width / (double)zoom_box.Width) * rect_size.Width);
                 MainWindow.rect.Height = (int)((img.Height / (double)zoom_box.Height) * rect_size.Height);
                 Show_Img();
