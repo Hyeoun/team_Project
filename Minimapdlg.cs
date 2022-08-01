@@ -12,7 +12,7 @@ namespace team_Project
         Bitmap img;
         PictureBox new_c_box;
 
-        public Minimapdlg(PictureBox new_c_box, Bitmap oImage, Rectangle rect)
+        public Minimapdlg(PictureBox new_c_box, Bitmap oImage)
         {
             InitializeComponent();
             this.new_c_box = new_c_box;
@@ -20,7 +20,6 @@ namespace team_Project
             zoom_box.Image = img;
             rect_size.Width = (int)((zoom_box.Width / (double)oImage.Width) * MainWindow.rect.Width);
             rect_size.Height = (int)((zoom_box.Height / (double)oImage.Height) * MainWindow.rect.Height);
-            pt = rect.Location;
         }
 
         private void left_box_Paint(object sender, PaintEventArgs e)
@@ -117,7 +116,7 @@ namespace team_Project
                 zoom_box.Refresh();
             }
         }
-        private void Show_Img()
+        public void Show_Img()
         {
             Bitmap ori_img = new Bitmap(zoom_box.Image);
             int width = ori_img.Width;

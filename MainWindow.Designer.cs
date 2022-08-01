@@ -74,6 +74,7 @@
             this.RightBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.RightBox.TabIndex = 0;
             this.RightBox.TabStop = false;
+            this.RightBox.Click += new System.EventHandler(this.RightBox_Click);
             this.RightBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RightBox_MouseMove);
             // 
             // btn_exp

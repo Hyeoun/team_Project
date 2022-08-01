@@ -92,10 +92,9 @@ namespace team_Project
         {
             try
             {
-                Bitmap left_bmp = new Bitmap(LeftBox.Image);
-                Bitmap new_bmp = new Bitmap(left_bmp);
-                new_bmp.expansion_oper(left_bmp, progressBar1);
-                RightBox.Image = new_bmp;
+                O_right_img = new Bitmap(O_left_img);
+                O_right_img.expansion_oper(O_left_img, progressBar1);
+                RightBox.Image = O_right_img;
             }
             catch (Exception ex)
             {
@@ -106,10 +105,9 @@ namespace team_Project
         {
             try
             {
-                Bitmap left_bmp = new Bitmap(LeftBox.Image);
-                Bitmap new_bmp = new Bitmap(left_bmp);
-                new_bmp.erosion_oper(left_bmp, progressBar1);
-                RightBox.Image = new_bmp;
+                O_right_img = new Bitmap(O_left_img);
+                O_right_img.erosion_oper(O_left_img, progressBar1);
+                RightBox.Image = O_right_img;
             }
             catch (Exception ex)
             {
@@ -120,9 +118,9 @@ namespace team_Project
         {
             try
             {
-                Bitmap right_bmp = new Bitmap(LeftBox.Image);
-                right_bmp.hist_equal_oper(progressBar1);
-                RightBox.Image = right_bmp;
+                O_right_img = new Bitmap(O_left_img);
+                O_right_img.hist_equal_oper(progressBar1);
+                RightBox.Image = O_right_img;
             }
             catch (Exception ex)
             {
@@ -133,9 +131,9 @@ namespace team_Project
         {
             try
             {
-                Bitmap right_bmp = new Bitmap(LeftBox.Image);
-                right_bmp.otsu_oper(progressBar1);
-                RightBox.Image = right_bmp;
+                O_right_img = new Bitmap(O_left_img);
+                O_right_img.otsu_oper(progressBar1);
+                RightBox.Image = O_right_img;
             }
             catch (Exception ex)
             {
@@ -146,10 +144,9 @@ namespace team_Project
         {
             try
             {
-                Bitmap left_bmp = new Bitmap(LeftBox.Image);
-                Bitmap new_bmp = new Bitmap(left_bmp);
-                new_bmp.gaussian_oper(left_bmp, progressBar1);
-                RightBox.Image = new_bmp;
+                O_right_img = new Bitmap(O_left_img);
+                O_right_img.gaussian_oper(O_left_img, progressBar1);
+                RightBox.Image = O_right_img;
             }
             catch (Exception ex)
             {
@@ -161,10 +158,9 @@ namespace team_Project
         {
             try
             {
-                Bitmap left_bmp = new Bitmap(LeftBox.Image);
-                Bitmap new_bmp = new Bitmap(left_bmp);
-                new_bmp.laplacian_oper(left_bmp, progressBar1);
-                RightBox.Image = new_bmp;
+                O_right_img = new Bitmap(O_left_img);
+                O_right_img.laplacian_oper(O_left_img, progressBar1);
+                RightBox.Image = O_right_img;
             }
             catch (Exception ex)
             {
@@ -187,7 +183,7 @@ namespace team_Project
         {
             if (minimapdlg == null)
             {
-                minimapdlg = new Minimapdlg(LeftBox, O_left_img, rect);
+                minimapdlg = new Minimapdlg(LeftBox, O_left_img);
                 minimapdlg.Owner = this;
                 minimapdlg?.Show();  //null이 아니면 show!
             }
@@ -198,6 +194,23 @@ namespace team_Project
             {
                 minimapdlg = null;
                 LeftBox_Click(sender, e);
+            }
+        }
+        private void RightBox_Click(object sender, EventArgs e)
+        {
+            if (minimapdlg == null)
+            {
+                minimapdlg = new Minimapdlg(RightBox, O_right_img);
+                minimapdlg.Owner = this;
+                minimapdlg?.Show();  //null이 아니면 show!
+            }
+            else
+                minimapdlg.Focus();
+
+            if (minimapdlg.open == false)
+            {
+                minimapdlg = null;
+                RightBox_Click(sender, e);
             }
         }
         private void LeftBox_MouseMove(object sender, MouseEventArgs e)
@@ -246,5 +259,7 @@ namespace team_Project
                 scope_box.Image = bitmap;
             }
         }
+
+        
     }
 }
