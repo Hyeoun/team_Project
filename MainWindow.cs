@@ -12,8 +12,9 @@ namespace team_Project
 {
     public partial class MainWindow : Form
     {
-        Image OriginImage;
-
+        Bitmap O_left_img;
+        Bitmap O_right_img;
+        public static Rectangle rect;
         public MainWindow()
         {
             InitializeComponent();
@@ -26,7 +27,11 @@ namespace team_Project
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 LeftBox.Load(openFileDialog1.FileName);
-                OriginImage = LeftBox.Image;
+                O_left_img = new Bitmap(LeftBox.Image);
+                rect.X = 0;
+                rect.Y = 0;
+                rect.Width = O_left_img.Width;
+                rect.Height = O_left_img.Height;
             }
         }
         private void btn_load2_Click(object sender, EventArgs e)
@@ -57,7 +62,7 @@ namespace team_Project
                         Save_dlg(buf);
                         break;
                     case DialogResult.No:
-                        Save_dlg(new Bitmap(OriginImage));
+                        Save_dlg(new Bitmap(O_left_img));
                         break;
                     case DialogResult.Cancel:
                         break;
@@ -76,7 +81,7 @@ namespace team_Project
                         Save_dlg(buf);
                         break;
                     case DialogResult.No:
-                        Save_dlg(new Bitmap(OriginImage));
+                        Save_dlg(new Bitmap(O_right_img));
                         break;
                     case DialogResult.Cancel:
                         break;
@@ -136,9 +141,7 @@ namespace team_Project
             {
                 Console.WriteLine(ex.Message);
             }
-
         }
-
         private void btn_gau_Click(object sender, EventArgs e)
         {
             try
@@ -154,7 +157,6 @@ namespace team_Project
             }
 
         }
-
         private void btn_lap_Click(object sender, EventArgs e)
         {
             try
@@ -170,7 +172,6 @@ namespace team_Project
             }
 
         }
-
         private void btn_match_Click(object sender, EventArgs e)
         {
             if (LeftBox.Image != null && RightBox.Image != null)
@@ -181,13 +182,12 @@ namespace team_Project
                 MessageBox.Show($"X:{match_p.X}, Y:{match_p.Y}");
             }
         }
-
         private Minimapdlg minimapdlg = null;
         private void LeftBox_Click(object sender, EventArgs e)
         {
             if (minimapdlg == null)
             {
-                minimapdlg = new Minimapdlg(LeftBox);
+                minimapdlg = new Minimapdlg(LeftBox, O_left_img, rect);
                 minimapdlg.Owner = this;
                 minimapdlg?.Show();  //null이 아니면 show!
             }
@@ -200,17 +200,14 @@ namespace team_Project
                 LeftBox_Click(sender, e);
             }
         }
-
         private void LeftBox_MouseMove(object sender, MouseEventArgs e)
         {
             scope_img(ref LeftBox, e);
         }
-
         private void RightBox_MouseMove(object sender, MouseEventArgs e)
         {
             scope_img(ref RightBox, e);
         }
-
         private void scope_img(ref PictureBox pic_box, MouseEventArgs e)
         {
             if (pic_box.Image == null)
