@@ -78,7 +78,7 @@
             this.ZoomNum.Font = new System.Drawing.Font("굴림", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.ZoomNum.Location = new System.Drawing.Point(171, 470);
             this.ZoomNum.Name = "ZoomNum";
-            this.ZoomNum.Size = new System.Drawing.Size(110, 34);
+            this.ZoomNum.Size = new System.Drawing.Size(108, 33);
             this.ZoomNum.TabIndex = 2;
             this.ZoomNum.Text = "label1";
             // 
@@ -93,7 +93,7 @@
             this.Controls.Add(this.zoom_box);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Minimapdlg";
-            this.Text = "Form1";
+            this.Text = "Minimap";
             this.Deactivate += new System.EventHandler(this.Minimapdlg_Deactivate);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.zoom_box)).EndInit();
