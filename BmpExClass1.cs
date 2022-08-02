@@ -139,7 +139,7 @@ namespace team_Project {
                     byte temp = (byte)hist[my_img.GetPixel(j, i).R];
                     my_img.SetPixel(j, i, Color.FromArgb(temp, temp, temp));
                 }
-                pro.Value = (int)((i + 1) / (double)width * 100);
+                pro.Value = (int)((i + 1) / (double)height * 100);
             }
         }
         public static void otsu_oper(this Bitmap my_img, ProgressBar pro)
