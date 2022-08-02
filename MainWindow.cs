@@ -214,9 +214,12 @@ namespace team_Project
                 {
                     for (int y = match_p.Y; y <= match_p.Y + right_bmp.Height; ++y)
                     {
-                        if (x == match_p.X || x == match_p.X + right_bmp.Width || y == match_p.Y || y == match_p.Y + right_bmp.Height)
+                        if (x < left_bmp.Width && y < left_bmp.Height)
                         {
-                            Square.SetPixel(x, y, Color.FromArgb(0, 0, 255));
+                            if (x == match_p.X || x == match_p.X + right_bmp.Width || y == match_p.Y || y == match_p.Y + right_bmp.Height)
+                            {
+                                Square.SetPixel(x, y, Color.FromArgb(0, 0, 255));
+                            }
                         }
                     }
                 }
