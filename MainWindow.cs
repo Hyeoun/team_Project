@@ -205,6 +205,20 @@ namespace team_Project
                 Bitmap right_bmp = new Bitmap(RightBox.Image);
                 Point match_p = left_bmp.match_img(right_bmp, progressBar1);
                 MessageBox.Show($"X:{match_p.X}, Y:{match_p.Y}", "매칭 좌표");
+
+                Bitmap Square = new Bitmap((Bitmap)LeftBox.Image.Clone());
+
+                for (int x = match_p.X; x <= match_p.X + right_bmp.Width; ++x)
+                {
+                    for (int y = match_p.Y; y <= match_p.Y + right_bmp.Height; ++y)
+                    {
+                        if (x == match_p.X || x == match_p.X + right_bmp.Width || y == match_p.Y || y == match_p.Y + right_bmp.Height)
+                        {
+                            Square.SetPixel(x, y, Color.FromArgb(0, 0, 255));
+                        }
+                    }
+                }
+                LeftBox.Image = Square;
             }
         }
 
