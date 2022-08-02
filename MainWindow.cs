@@ -17,8 +17,10 @@ namespace team_Project
         public static Rectangle rect;
         public static Rectangle rect2;
         private Minimapdlg minimapdlg = null;
+        private Minimapdlg minimapdlg2 = null;
 
         bool isModalOpened = false;
+        bool isModalOpened2 = false;
 
         public MainWindow()
         {
@@ -248,25 +250,25 @@ namespace team_Project
         }
         private void RightBox_Click(object sender, EventArgs e)
         {
-            if (isModalOpened || RightBox.Image == null)
+            if (isModalOpened2 || RightBox.Image == null)
             {
                 return;
             }
 
-            if (minimapdlg == null)
+            if (minimapdlg2 == null)
             {
-                isModalOpened = true;
-                minimapdlg = new Minimapdlg(RightBox, O_right_img, false);
-                minimapdlg.FormClosed += (o, exx) => isModalOpened = false;
-                minimapdlg.Owner = this;
-                minimapdlg?.Show();
+                isModalOpened2 = true;
+                minimapdlg2 = new Minimapdlg(RightBox, O_right_img, false);
+                minimapdlg2.FormClosed += (o, exx) => isModalOpened2 = false;
+                minimapdlg2.Owner = this;
+                minimapdlg2?.Show();
             }
             else
-                minimapdlg.Focus();
+                minimapdlg2.Focus();
 
-            if (minimapdlg.open == false)
+            if (minimapdlg2.open == false)
             {
-                minimapdlg = null;
+                minimapdlg2 = null;
                 RightBox_Click(sender, e);
             }
         }
