@@ -63,6 +63,11 @@ namespace team_Project
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 RightBox.Load(openFileDialog1.FileName);
+                O_right_img = new Bitmap(RightBox.Image);
+                rect2.X = 0;
+                rect2.Y = 0;
+                rect2.Width = O_right_img.Width;
+                rect2.Height = O_right_img.Height;
             }
         }
         private void Save_dlg(Bitmap buf)
