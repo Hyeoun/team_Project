@@ -210,7 +210,7 @@ namespace team_Project {
                         int b = 0;
                         for (int j = x - 1; j <= x + 1; ++j)
                         {
-                            if (within_range(height, width, j, i))
+                            if (within_range(width, height, j, i))
                             {
                                 double temp = (ori_img.GetPixel(j, i).R / 16.0) * gaus_arr[a * 3 + b];
                                 pix += (byte)temp;
@@ -241,7 +241,7 @@ namespace team_Project {
                         int b = 0;
                         for (int j = x - 1; j <= x + 1; ++j)
                         {
-                            if (within_range(height, width, j, i))
+                            if (within_range(width, height, j, i))
                             {
                                 pix += ori_img.GetPixel(j, i).R * lapla_arr[a * 3 + b];
                             }
