@@ -34,6 +34,7 @@ namespace team_Project
                 pt.X = (int)((zoom_box.Width / (double)img.Width) * MainWindow.rect2.X);
                 pt.Y = (int)((zoom_box.Height / (double)img.Height) * MainWindow.rect2.Y);
             }
+            ZoomNum.Text = $"X " + String.Format("{0:N2}", (zoom_box.Width * zoom_box.Height) / (double)(rect_size.Width * rect_size.Height));
         }
 
         private void left_box_Paint(object sender, PaintEventArgs e)
