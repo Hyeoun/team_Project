@@ -7,11 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MetroFramework.Forms;
 
 namespace team_Project
 {
-    public partial class MainWindow : MetroForm
+    public partial class MainWindow : Form
     {
         Bitmap O_left_img;
         Bitmap O_right_img;

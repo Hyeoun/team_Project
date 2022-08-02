@@ -302,7 +302,7 @@
             this.linkLabel1.TabIndex = 16;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "GitHub Link";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            //this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // MainWindow
             // 
@@ -334,7 +334,6 @@
             this.Controls.Add(this.LeftBox);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainWindow";
-            this.Style = MetroFramework.MetroColorStyle.Lime;
             this.Text = "ATI 팀프로젝트";
             ((System.ComponentModel.ISupportInitialize)(this.LeftBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RightBox)).EndInit();
