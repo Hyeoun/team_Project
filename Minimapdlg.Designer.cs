@@ -32,7 +32,7 @@
             this.OpenFiledlg = new System.Windows.Forms.OpenFileDialog();
             this.btn_zoom_in = new System.Windows.Forms.Button();
             this.btn_zoom_out = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ZoomNum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.zoom_box)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +54,7 @@
             // 
             // btn_zoom_in
             // 
-            this.btn_zoom_in.Location = new System.Drawing.Point(113, 34);
+            this.btn_zoom_in.Location = new System.Drawing.Point(97, 46);
             this.btn_zoom_in.Name = "btn_zoom_in";
             this.btn_zoom_in.Size = new System.Drawing.Size(83, 36);
             this.btn_zoom_in.TabIndex = 1;
@@ -64,7 +64,7 @@
             // 
             // btn_zoom_out
             // 
-            this.btn_zoom_out.Location = new System.Drawing.Point(224, 34);
+            this.btn_zoom_out.Location = new System.Drawing.Point(208, 46);
             this.btn_zoom_out.Name = "btn_zoom_out";
             this.btn_zoom_out.Size = new System.Drawing.Size(83, 36);
             this.btn_zoom_out.TabIndex = 1;
@@ -72,27 +72,28 @@
             this.btn_zoom_out.UseVisualStyleBackColor = true;
             this.btn_zoom_out.Click += new System.EventHandler(this.btn_zoom_out_Click);
             // 
-            // label1
+            // ZoomNum
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(142, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "현재 배율 :";
+            this.ZoomNum.AutoSize = true;
+            this.ZoomNum.Font = new System.Drawing.Font("굴림", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.ZoomNum.Location = new System.Drawing.Point(171, 470);
+            this.ZoomNum.Name = "ZoomNum";
+            this.ZoomNum.Size = new System.Drawing.Size(110, 34);
+            this.ZoomNum.TabIndex = 2;
+            this.ZoomNum.Text = "label1";
             // 
             // Minimapdlg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(454, 519);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ZoomNum);
             this.Controls.Add(this.btn_zoom_out);
             this.Controls.Add(this.btn_zoom_in);
             this.Controls.Add(this.zoom_box);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Minimapdlg";
-            this.Text = "Minimap";
+            this.Text = "Form1";
             this.Deactivate += new System.EventHandler(this.Minimapdlg_Deactivate);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.zoom_box)).EndInit();
@@ -107,7 +108,7 @@
         private System.Windows.Forms.OpenFileDialog OpenFiledlg;
         private System.Windows.Forms.Button btn_zoom_in;
         private System.Windows.Forms.Button btn_zoom_out;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label ZoomNum;
     }
 }
 
