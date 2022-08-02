@@ -54,7 +54,7 @@
             // 
             // btn_zoom_in
             // 
-            this.btn_zoom_in.Location = new System.Drawing.Point(97, 46);
+            this.btn_zoom_in.Location = new System.Drawing.Point(120, 45);
             this.btn_zoom_in.Name = "btn_zoom_in";
             this.btn_zoom_in.Size = new System.Drawing.Size(83, 36);
             this.btn_zoom_in.TabIndex = 1;
@@ -64,7 +64,7 @@
             // 
             // btn_zoom_out
             // 
-            this.btn_zoom_out.Location = new System.Drawing.Point(208, 46);
+            this.btn_zoom_out.Location = new System.Drawing.Point(231, 45);
             this.btn_zoom_out.Name = "btn_zoom_out";
             this.btn_zoom_out.Size = new System.Drawing.Size(83, 36);
             this.btn_zoom_out.TabIndex = 1;
@@ -76,11 +76,11 @@
             // 
             this.ZoomNum.AutoSize = true;
             this.ZoomNum.Font = new System.Drawing.Font("굴림", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.ZoomNum.Location = new System.Drawing.Point(171, 470);
+            this.ZoomNum.Location = new System.Drawing.Point(158, 470);
             this.ZoomNum.Name = "ZoomNum";
-            this.ZoomNum.Size = new System.Drawing.Size(108, 33);
+            this.ZoomNum.Size = new System.Drawing.Size(115, 33);
             this.ZoomNum.TabIndex = 2;
-            this.ZoomNum.Text = "label1";
+            this.ZoomNum.Text = "X 1.00";
             // 
             // Minimapdlg
             // 
@@ -95,7 +95,6 @@
             this.Name = "Minimapdlg";
             this.Text = "Minimap";
             this.Deactivate += new System.EventHandler(this.Minimapdlg_Deactivate);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.zoom_box)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
