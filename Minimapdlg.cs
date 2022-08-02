@@ -41,21 +41,21 @@ namespace team_Project
         {
             if (zoom_box.Image != null)
             {
-                Rectangle rt = new Rectangle(pt.X, pt.Y, rect_size.Width-2, rect_size.Height-2);
-                e.Graphics.DrawRectangle(new Pen(Color.Red, 2), rt);
+                Rectangle rt = new Rectangle(pt.X, pt.Y, rect_size.Width - 1, rect_size.Height - 1);
+                e.Graphics.DrawRectangle(new Pen(Color.Red, 1), rt);
                 if (loc_left)
                 {
-                    MainWindow.rect.Width = (int)((img.Width / (double)zoom_box.Width) * rect_size.Width);
-                    MainWindow.rect.Height = (int)((img.Height / (double)zoom_box.Height) * rect_size.Height);
-                    MainWindow.rect.X = (int)((img.Width / (double)zoom_box.Width) * pt.X);
-                    MainWindow.rect.Y = (int)((img.Height / (double)zoom_box.Height) * pt.Y);
+                    MainWindow.rect.Width = (int)Math.Ceiling((img.Width / (double)zoom_box.Width) * rect_size.Width);
+                    MainWindow.rect.Height = (int)Math.Ceiling((img.Height / (double)zoom_box.Height) * rect_size.Height);
+                    MainWindow.rect.X = (int)Math.Ceiling((img.Width / (double)zoom_box.Width) * pt.X);
+                    MainWindow.rect.Y = (int)Math.Ceiling((img.Height / (double)zoom_box.Height) * pt.Y);
                 }
                 else
                 {
-                    MainWindow.rect2.Width = (int)((img.Width / (double)zoom_box.Width) * rect_size.Width);
-                    MainWindow.rect2.Height = (int)((img.Height / (double)zoom_box.Height) * rect_size.Height);
-                    MainWindow.rect2.X = (int)((img.Width / (double)zoom_box.Width) * pt.X);
-                    MainWindow.rect2.Y = (int)((img.Height / (double)zoom_box.Height) * pt.Y);
+                    MainWindow.rect2.Width = (int)Math.Ceiling((img.Width / (double)zoom_box.Width) * rect_size.Width);
+                    MainWindow.rect2.Height = (int)Math.Ceiling((img.Height / (double)zoom_box.Height) * rect_size.Height);
+                    MainWindow.rect2.X = (int)Math.Ceiling((img.Width / (double)zoom_box.Width) * pt.X);
+                    MainWindow.rect2.Y = (int)Math.Ceiling((img.Height / (double)zoom_box.Height) * pt.Y);
                 }
                 Show_Img();
             }
