@@ -48,6 +48,11 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.LeftBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RightBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scope_box)).BeginInit();
@@ -55,7 +60,7 @@
             // 
             // LeftBox
             // 
-            this.LeftBox.Location = new System.Drawing.Point(24, 72);
+            this.LeftBox.Location = new System.Drawing.Point(31, 71);
             this.LeftBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LeftBox.Name = "LeftBox";
             this.LeftBox.Size = new System.Drawing.Size(370, 370);
@@ -67,7 +72,7 @@
             // 
             // RightBox
             // 
-            this.RightBox.Location = new System.Drawing.Point(419, 72);
+            this.RightBox.Location = new System.Drawing.Point(426, 71);
             this.RightBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RightBox.Name = "RightBox";
             this.RightBox.Size = new System.Drawing.Size(370, 370);
@@ -79,7 +84,7 @@
             // 
             // btn_exp
             // 
-            this.btn_exp.Location = new System.Drawing.Point(810, 24);
+            this.btn_exp.Location = new System.Drawing.Point(828, 71);
             this.btn_exp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_exp.Name = "btn_exp";
             this.btn_exp.Size = new System.Drawing.Size(109, 32);
@@ -90,7 +95,7 @@
             // 
             // btn_ero
             // 
-            this.btn_ero.Location = new System.Drawing.Point(810, 72);
+            this.btn_ero.Location = new System.Drawing.Point(828, 119);
             this.btn_ero.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_ero.Name = "btn_ero";
             this.btn_ero.Size = new System.Drawing.Size(109, 32);
@@ -101,7 +106,7 @@
             // 
             // btn_hist
             // 
-            this.btn_hist.Location = new System.Drawing.Point(810, 122);
+            this.btn_hist.Location = new System.Drawing.Point(828, 181);
             this.btn_hist.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_hist.Name = "btn_hist";
             this.btn_hist.Size = new System.Drawing.Size(109, 32);
@@ -112,7 +117,7 @@
             // 
             // btn_otsu
             // 
-            this.btn_otsu.Location = new System.Drawing.Point(810, 170);
+            this.btn_otsu.Location = new System.Drawing.Point(828, 229);
             this.btn_otsu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_otsu.Name = "btn_otsu";
             this.btn_otsu.Size = new System.Drawing.Size(109, 32);
@@ -123,7 +128,7 @@
             // 
             // btn_gau
             // 
-            this.btn_gau.Location = new System.Drawing.Point(810, 219);
+            this.btn_gau.Location = new System.Drawing.Point(828, 292);
             this.btn_gau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_gau.Name = "btn_gau";
             this.btn_gau.Size = new System.Drawing.Size(109, 32);
@@ -134,7 +139,7 @@
             // 
             // btn_lap
             // 
-            this.btn_lap.Location = new System.Drawing.Point(810, 268);
+            this.btn_lap.Location = new System.Drawing.Point(828, 341);
             this.btn_lap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_lap.Name = "btn_lap";
             this.btn_lap.Size = new System.Drawing.Size(109, 32);
@@ -145,7 +150,7 @@
             // 
             // scope_box
             // 
-            this.scope_box.Location = new System.Drawing.Point(816, 449);
+            this.scope_box.Location = new System.Drawing.Point(980, 434);
             this.scope_box.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.scope_box.Name = "scope_box";
             this.scope_box.Size = new System.Drawing.Size(101, 100);
@@ -156,7 +161,7 @@
             // lbl_gray
             // 
             this.lbl_gray.AutoSize = true;
-            this.lbl_gray.Location = new System.Drawing.Point(813, 427);
+            this.lbl_gray.Location = new System.Drawing.Point(977, 399);
             this.lbl_gray.Name = "lbl_gray";
             this.lbl_gray.Size = new System.Drawing.Size(50, 15);
             this.lbl_gray.TabIndex = 12;
@@ -164,7 +169,7 @@
             // 
             // btn_load1
             // 
-            this.btn_load1.Location = new System.Drawing.Point(83, 464);
+            this.btn_load1.Location = new System.Drawing.Point(90, 456);
             this.btn_load1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_load1.Name = "btn_load1";
             this.btn_load1.Size = new System.Drawing.Size(109, 32);
@@ -175,7 +180,7 @@
             // 
             // btn_save1
             // 
-            this.btn_save1.Location = new System.Drawing.Point(217, 464);
+            this.btn_save1.Location = new System.Drawing.Point(224, 456);
             this.btn_save1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_save1.Name = "btn_save1";
             this.btn_save1.Size = new System.Drawing.Size(109, 32);
@@ -186,7 +191,7 @@
             // 
             // btn_load2
             // 
-            this.btn_load2.Location = new System.Drawing.Point(479, 464);
+            this.btn_load2.Location = new System.Drawing.Point(486, 456);
             this.btn_load2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_load2.Name = "btn_load2";
             this.btn_load2.Size = new System.Drawing.Size(109, 32);
@@ -197,7 +202,7 @@
             // 
             // btn_save2
             // 
-            this.btn_save2.Location = new System.Drawing.Point(613, 464);
+            this.btn_save2.Location = new System.Drawing.Point(620, 456);
             this.btn_save2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_save2.Name = "btn_save2";
             this.btn_save2.Size = new System.Drawing.Size(109, 32);
@@ -208,7 +213,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(24, 525);
+            this.progressBar1.Location = new System.Drawing.Point(31, 512);
             this.progressBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(765, 22);
@@ -216,7 +221,7 @@
             // 
             // btn_match
             // 
-            this.btn_match.Location = new System.Drawing.Point(810, 349);
+            this.btn_match.Location = new System.Drawing.Point(828, 409);
             this.btn_match.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_match.Name = "btn_match";
             this.btn_match.Size = new System.Drawing.Size(109, 32);
@@ -232,7 +237,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(813, 399);
+            this.label1.Location = new System.Drawing.Point(977, 371);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 15);
             this.label1.TabIndex = 14;
@@ -241,17 +246,74 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(865, 399);
+            this.label2.Location = new System.Drawing.Point(1029, 371);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 15);
             this.label2.TabIndex = 14;
             this.label2.Text = "Y :";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(991, 112);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 15);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "이현삼";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Location = new System.Drawing.Point(991, 154);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 15);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "황형준";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.Location = new System.Drawing.Point(991, 194);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 15);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "박성현";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.Location = new System.Drawing.Point(991, 233);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 15);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "김연주";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.LinkVisited = true;
+            this.linkLabel1.Location = new System.Drawing.Point(981, 279);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(82, 15);
+            this.linkLabel1.TabIndex = 16;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "GitHub Link";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(941, 570);
+            this.ClientSize = new System.Drawing.Size(1123, 572);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
@@ -272,7 +334,8 @@
             this.Controls.Add(this.LeftBox);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainWindow";
-            this.Text = "Form1";
+            this.Style = MetroFramework.MetroColorStyle.Lime;
+            this.Text = "ATI 팀프로젝트";
             ((System.ComponentModel.ISupportInitialize)(this.LeftBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RightBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scope_box)).EndInit();
@@ -303,6 +366,11 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 
