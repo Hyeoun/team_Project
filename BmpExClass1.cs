@@ -61,9 +61,9 @@ namespace team_Project {
         }
         private static void histing(Bitmap my_img, ref int[] hist)
         {
-            for (int i = 0; i < my_img.Width; ++i)
+            for (int i = 0; i < my_img.Height; ++i)
             {
-                for (int j = 0; j < my_img.Height; ++j)
+                for (int j = 0; j < my_img.Width; ++j)
                 {
                     ++hist[my_img.GetPixel(j, i).R];
                 }
@@ -132,9 +132,9 @@ namespace team_Project {
                 _sum[i] = hist[i] + _sum[i - 1];
                 hist[i] = (int)Math.Round(_sum[i] * pre_oper);
             }
-            for (int i = 0; i < my_img.Width; ++i)
+            for (int i = 0; i < my_img.Height; ++i)
             {
-                for (int j = 0; j < my_img.Height; ++j)
+                for (int j = 0; j < my_img.Width; ++j)
                 {
                     byte temp = (byte)hist[my_img.GetPixel(j, i).R];
                     my_img.SetPixel(j, i, Color.FromArgb(temp, temp, temp));
