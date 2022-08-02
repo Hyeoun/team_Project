@@ -204,7 +204,7 @@ namespace team_Project
                 Bitmap left_bmp = new Bitmap(LeftBox.Image);
                 Bitmap right_bmp = new Bitmap(RightBox.Image);
                 Point match_p = left_bmp.match_img(right_bmp, progressBar1);
-                MessageBox.Show($"X:{match_p.X}, Y:{match_p.Y}");
+                MessageBox.Show($"X:{match_p.X}, Y:{match_p.Y}", "매칭 좌표");
             }
         }
 
