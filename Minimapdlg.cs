@@ -96,6 +96,8 @@ namespace team_Project
                 Size tsize = new Size(rect_size.Width - 20, rect_size.Height - 20);
                 if (tsize.Width - 20 > 50 && tsize.Height - 20 > 50)
                 {
+                    ZoomNum.Text = $"X "+String.Format("{0:N2}",(rect_size.Width * rect_size.Height) / (double)(tsize.Width * tsize.Height));
+
                     pt.X = tpt.X;
                     pt.Y = tpt.Y;
                     rect_size.Width = tsize.Width;
@@ -114,6 +116,7 @@ namespace team_Project
                 if (within_Range(tpt.X, tpt.Y, zoom_box.Width, zoom_box.Height) &&
                     within_Range(tpt.X + tsize.Width, tpt.Y + tsize.Height, zoom_box.Width, zoom_box.Height))
                 {
+                    ZoomNum.Text = $"X " + String.Format("{0:N2}", (rect_size.Width * rect_size.Height) / (double)(tsize.Width * tsize.Height));
                     pt.X = tpt.X;
                     pt.Y = tpt.Y;
                     rect_size.Width = tsize.Width;
@@ -121,6 +124,7 @@ namespace team_Project
                 }
                 else if (within_Range(tpt.X, tpt.Y, zoom_box.Width, zoom_box.Height))
                 {
+                    ZoomNum.Text = $"X " + String.Format("{0:N2}", (rect_size.Width * rect_size.Height) / (double)(tsize.Width * tsize.Height));
                     pt.X = tpt.X;
                     pt.Y = tpt.Y;
                     rect_size.Width += 10;
@@ -128,11 +132,13 @@ namespace team_Project
                 }
                 else if (within_Range(tpt.X + tsize.Width, tpt.Y + tsize.Height, zoom_box.Width, zoom_box.Height))
                 {
+                    ZoomNum.Text = $"X " + String.Format("{0:N2}", (rect_size.Width * rect_size.Height) / (double)(tsize.Width * tsize.Height));
                     rect_size.Width = tsize.Width;
                     rect_size.Height = tsize.Height;
                 }
                 else
                 {
+                    ZoomNum.Text = $"X " + String.Format("{0:N2}", (rect_size.Width * rect_size.Height) / (double)(tsize.Width * tsize.Height));
                     pt.X = 0;
                     pt.Y = 0;
                     rect_size.Width = zoom_box.Width;

@@ -32,6 +32,7 @@
             this.OpenFiledlg = new System.Windows.Forms.OpenFileDialog();
             this.btn_zoom_in = new System.Windows.Forms.Button();
             this.btn_zoom_out = new System.Windows.Forms.Button();
+            this.ZoomNum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.zoom_box)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,11 +72,22 @@
             this.btn_zoom_out.UseVisualStyleBackColor = true;
             this.btn_zoom_out.Click += new System.EventHandler(this.btn_zoom_out_Click);
             // 
+            // ZoomNum
+            // 
+            this.ZoomNum.AutoSize = true;
+            this.ZoomNum.Font = new System.Drawing.Font("굴림", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.ZoomNum.Location = new System.Drawing.Point(171, 470);
+            this.ZoomNum.Name = "ZoomNum";
+            this.ZoomNum.Size = new System.Drawing.Size(110, 34);
+            this.ZoomNum.TabIndex = 2;
+            this.ZoomNum.Text = "label1";
+            // 
             // Minimapdlg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(454, 519);
+            this.Controls.Add(this.ZoomNum);
             this.Controls.Add(this.btn_zoom_out);
             this.Controls.Add(this.btn_zoom_in);
             this.Controls.Add(this.zoom_box);
@@ -86,6 +98,7 @@
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.zoom_box)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -95,6 +108,7 @@
         private System.Windows.Forms.OpenFileDialog OpenFiledlg;
         private System.Windows.Forms.Button btn_zoom_in;
         private System.Windows.Forms.Button btn_zoom_out;
+        private System.Windows.Forms.Label ZoomNum;
     }
 }
 
