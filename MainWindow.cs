@@ -259,15 +259,15 @@ namespace team_Project
 
         private void LeftBox_MouseMove(object sender, MouseEventArgs e)
         {
-            scope_img(ref LeftBox, e);
+            scope_img(ref LeftBox, e, rect);
         }
 
         private void RightBox_MouseMove(object sender, MouseEventArgs e)
         {
-            scope_img(ref RightBox, e);
+            scope_img(ref RightBox, e, rect2);
         }
 
-        private void scope_img(ref PictureBox pic_box, MouseEventArgs e)
+        private void scope_img(ref PictureBox pic_box, MouseEventArgs e, Rectangle rect)
         {
             if (pic_box.Image == null)
             {
